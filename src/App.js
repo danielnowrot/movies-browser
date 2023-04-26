@@ -5,6 +5,7 @@ function App() {
         <p>Hello world!</p>
         <p>Testuję pierwszą zmianę. - Jacek</p>
         <p>Druga zmiana</p>
+        <p>Lorem</p>
       </header>
     </div>
   );
