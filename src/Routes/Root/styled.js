@@ -52,7 +52,7 @@ export const StyledNavLink = styled(NavLink)`
     text-transform: uppercase;
     text-decoration: none;
     
-    &::active {
+    &.active {
         border: 1px solid #FFFFFF;
         border-radius: 24px;
     }
