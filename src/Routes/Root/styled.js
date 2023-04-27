@@ -5,11 +5,26 @@ import { NavLink } from "react-router-dom";
 export const StyledHeader = styled.header`
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 40px;
     padding: 0 12px;
     justify-content: space-around;
     height: ${({ theme }) => theme.topBar.thick}px;
     background-color: ${({ theme }) => theme.topBar.woodSmoke};
+
+    @media (max-width: ${({ theme }) => theme.topBar.mediaSizeS}px) {
+        flex-wrap: wrap;
+        height: ${({ theme }) => theme.topBar.mediaThickS}px;
+        align-content: center;
+        justify-content: center;
+        gap: 24px;
+    }
+
+    @media (max-width: ${({ theme }) => theme.topBar.mediaSizeL}px) and 
+        (min-width: ${({ theme }) => theme.topBar.mediaSizeS}px) {
+        height: ${({ theme }) => theme.topBar.mediaThickS}px;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
 `;
 
 export const StyledBar = styled.div`
@@ -18,6 +33,10 @@ export const StyledBar = styled.div`
     justify-content: space-between;
     align-items: center;
     gap: 12px;
+
+    @media (max-width: ${({ theme }) => theme.topBar.mediaSizeS}px) {
+        flex-basis: 288px;
+    }
 `;
 
 export const StyledLeft = styled.div`
@@ -31,6 +50,13 @@ export const StyledNav = styled.nav`
 `;
 
 export const StyledImg = styled.img`
+    width: 40px;
+    height: 40px;
+
+    @media (max-width: ${({ theme }) => theme.topBar.mediaSizeS}px) {
+    width: 17px;
+    height: 17px;    
+    }
 `;
 
 export const StyledTitle = styled.div`
@@ -40,6 +66,11 @@ export const StyledTitle = styled.div`
     line-height: 40px;
     letter-spacing: -1.5px;
     text-transform: capitalize;
+
+    @media (max-width: ${({ theme }) => theme.topBar.mediaSizeS}px) {
+        font-size: 13px;
+        line-height: 130%;
+    }
 `;
 
 export const StyledNavLink = styled(NavLink)`
@@ -47,7 +78,7 @@ export const StyledNavLink = styled(NavLink)`
     font-weight: 600;
     font-size: 14px;
     line-height: 21px;
-    padding: 13.5px 24px;
+    padding: 14px 24px;
     background-color: ${({ theme }) => theme.topBar.woodSmoke};
     text-transform: uppercase;
     text-decoration: none;
@@ -56,10 +87,18 @@ export const StyledNavLink = styled(NavLink)`
         border: 1px solid #FFFFFF;
         border-radius: 24px;
     }
+
+    @media (max-width: ${({ theme }) => theme.topBar.mediaSizeS}px) {
+        font-size: 12px;
+        line-height: 18px;
+        padding: 8px 12px;
+    }
 `;
 
 export const StyledSearch = styled.div`
     position: relative;
+
+   
 `;
 
 export const StyledInput = styled.input`
@@ -69,6 +108,10 @@ export const StyledInput = styled.input`
     height: 48px;
     padding-left: 64px;
     padding-right: 16px;
+
+    @media (max-width: ${({ theme }) => theme.topBar.mediaSizeS}px) {
+    width: 288px;
+    }
 `;
 
 export const StyledIcon = styled.div`

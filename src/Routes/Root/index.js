@@ -8,6 +8,7 @@ import camera from "../../Images/camera.svg";
 import { Outlet } from "react-router-dom";
 
 const Root = () => {
+
     return (
         <>
             <StyledHeader>
