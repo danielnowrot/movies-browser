@@ -13,6 +13,7 @@ const StyledGlobal = createGlobalStyle`
         margin: 0;
         font-family: 'Poppins', sans-serif;
         font-style: normal;
+        white-space: nowrap;
     }
 `
 

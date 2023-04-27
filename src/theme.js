@@ -1,6 +1,7 @@
 const theme = {
     topBar: {
-        Woodsmoke: "#18181B",
+        woodSmoke: "#18181B",
+        thick: 94,
     }
 };
 

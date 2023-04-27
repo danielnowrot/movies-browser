@@ -1,21 +1,30 @@
-import { StyledHeader, StyledImg, StyledTitle,
-        StyledMoviesPeople, StyledSearch } from "./styled";
+import {
+    StyledHeader, StyledImg, StyledTitle,
+    StyledMoviesPeople, StyledSearch, StyledBar,
+    StyledLeft, StyledRight
+} from "./styled";
 import camera from "../../Images/camera.svg";
- 
+
 const Root = () => {
     return (
         <StyledHeader>
-            <StyledImg src={camera} />
-            <StyledTitle>
-                Movies Browser    
-            </StyledTitle>
-            <StyledMoviesPeople>
-                Movies
-            </StyledMoviesPeople>
-            <StyledMoviesPeople>
-                Poeple
-            </StyledMoviesPeople>
-            <StyledSearch/>
+            <StyledBar>
+                <StyledLeft>
+                    <StyledImg src={camera} />
+                    <StyledTitle>
+                        Movies Browser
+                    </StyledTitle>
+                </StyledLeft>
+                <StyledRight>
+                    <StyledMoviesPeople>
+                        Movies
+                    </StyledMoviesPeople>
+                    <StyledMoviesPeople>
+                        Poeple
+                    </StyledMoviesPeople>
+                </StyledRight>
+            </StyledBar>
+            <StyledSearch placeholder="Search for movies..." />
         </StyledHeader>
     )
 };
