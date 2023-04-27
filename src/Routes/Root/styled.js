@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import magnifyingGlass from "../../Images/magniyfying-glass.svg";
+import { NavLink } from "react-router-dom";
 
 export const StyledHeader = styled.header`
     display: flex;
@@ -17,20 +18,20 @@ export const StyledBar = styled.div`
     justify-content: space-between;
     align-items: center;
     gap: 12px;
-`
+`;
 
 export const StyledLeft = styled.div`
     display: flex;
     gap: 12px;
-`
+`;
 
-export const StyledRight = styled.div`
+export const StyledNav = styled.nav`
     display: flex;
     gap: 16px;
-`
+`;
 
 export const StyledImg = styled.img`
-`
+`;
 
 export const StyledTitle = styled.div`
     color: #FFFFFF;
@@ -39,22 +40,27 @@ export const StyledTitle = styled.div`
     line-height: 40px;
     letter-spacing: -1.5px;
     text-transform: capitalize;
-`
+`;
 
-export const StyledMoviesPeople = styled.div`
+export const StyledNavLink = styled(NavLink)`
     color: white;
     font-weight: 600;
     font-size: 14px;
     line-height: 21px;
     padding: 13.5px 24px;
+    background-color: ${({ theme }) => theme.topBar.woodSmoke};
     text-transform: uppercase;
-    border: 1px solid #FFFFFF;
-    border-radius: 24px;
-`
+    text-decoration: none;
+    
+    &::active {
+        border: 1px solid #FFFFFF;
+        border-radius: 24px;
+    }
+`;
 
 export const StyledSearch = styled.div`
     position: relative;
-`
+`;
 
 export const StyledInput = styled.input`
     border: 1px solid #E4E6F0;
@@ -63,7 +69,7 @@ export const StyledInput = styled.input`
     height: 48px;
     padding-left: 64px;
     padding-right: 16px;
-`
+`;
 
 export const StyledIcon = styled.div`
   position: absolute;
@@ -75,4 +81,8 @@ export const StyledIcon = styled.div`
   background-image: url(${magnifyingGlass});
   background-repeat: no-repeat;
   background-size: contain;
+`;
+
+export const StyledSection = styled.section`
+
 `;

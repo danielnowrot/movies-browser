@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { Children } from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import StyledGlobal from './styled';
 import theme from './theme';
+import App from './App';
+import Movies from './Routes/Movies/index';
+import People from './Routes/People/index';
 import { createHashRouter, RouterProvider } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 const router = createHashRouter([
   {
     path: "/",
-    element: <App />
+    element: <App />,
+    children: [
+      {
+        path:"movies",
+        element: <Movies />
+      },
+      {
+        path:"people",
+        element: <People />
+      }
+    ]
   }
 ])
 
