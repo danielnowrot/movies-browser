@@ -1,3 +1,5 @@
+import { MovieDetails } from "./features/movieDetails/MovieDetails";
+
 function App() {
   return (
     <div className="App">
@@ -6,6 +8,7 @@ function App() {
         <p>Testuję pierwszą zmianę. - Jacek</p>
         <p>Druga zmiana</p>
         <p>Lorem</p>
+        <MovieDetails />
       </header>
     </div>
   );
