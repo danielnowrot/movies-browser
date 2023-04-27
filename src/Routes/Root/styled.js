@@ -23,7 +23,7 @@ export const StyledHeader = styled.header`
         (min-width: ${({ theme }) => theme.topBar.mediaSizeS}px) {
         height: ${({ theme }) => theme.topBar.mediaThickS}px;
         flex-wrap: wrap;
-        gap: 4px;
+        gap: 0px;
     }
 `;
 
@@ -39,7 +39,7 @@ export const StyledBar = styled.div`
     }
 `;
 
-export const StyledLeft = styled.div`
+export const StyledMoviesBrowser = styled.div`
     display: flex;
     gap: 12px;
 `;
@@ -97,8 +97,6 @@ export const StyledNavLink = styled(NavLink)`
 
 export const StyledSearch = styled.div`
     position: relative;
-
-   
 `;
 
 export const StyledInput = styled.input`
@@ -111,6 +109,7 @@ export const StyledInput = styled.input`
 
     @media (max-width: ${({ theme }) => theme.topBar.mediaSizeS}px) {
     width: 288px;
+    padding-left: 40px;
     }
 `;
 
@@ -124,6 +123,12 @@ export const StyledIcon = styled.div`
   background-image: url(${magnifyingGlass});
   background-repeat: no-repeat;
   background-size: contain;
+
+  @media (max-width: ${({ theme }) => theme.topBar.mediaSizeS}px) {
+    width: 13px;
+    height: 13px;
+    left: 16px;
+    }
 `;
 
 export const StyledSection = styled.section`
