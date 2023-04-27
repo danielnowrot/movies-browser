@@ -10,8 +10,8 @@ const StyledGlobal = createGlobalStyle`
     }
 
     body {
-        font-style: normal;
         margin: 0;
+        font-family: 'Poppins', sans-serif;
     }
 `
 
