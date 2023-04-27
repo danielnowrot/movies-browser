@@ -1,7 +1,7 @@
 import {
     StyledHeader, StyledImg, StyledTitle,
     StyledMoviesPeople, StyledSearch, StyledBar,
-    StyledLeft, StyledRight
+    StyledLeft, StyledRight, StyledIcon, StyledInput
 } from "./styled";
 import camera from "../../Images/camera.svg";
 
@@ -24,7 +24,10 @@ const Root = () => {
                     </StyledMoviesPeople>
                 </StyledRight>
             </StyledBar>
-            <StyledSearch placeholder="Search for movies..." />
+            <StyledSearch>
+                <StyledInput placeholder="Search for movies..." type="search" />
+                <StyledIcon />
+            </StyledSearch>
         </StyledHeader>
     )
 };

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import magnifyingGlass from "../../Images/magniyfying-glass.svg";
 
 export const StyledHeader = styled.header`
     display: flex;
@@ -51,9 +52,27 @@ export const StyledMoviesPeople = styled.div`
     border-radius: 24px;
 `
 
-export const StyledSearch = styled.input`
+export const StyledSearch = styled.div`
+    position: relative;
+`
+
+export const StyledInput = styled.input`
     border: 1px solid #E4E6F0;
     border-radius: 33px;
     width: 432px;
     height: 48px;
+    padding-left: 64px;
+    padding-right: 16px;
 `
+
+export const StyledIcon = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 26px;
+  transform: translateY(-50%);
+  width: 19px;
+  height: 19px;
+  background-image: url(${magnifyingGlass});
+  background-repeat: no-repeat;
+  background-size: contain;
+`;
