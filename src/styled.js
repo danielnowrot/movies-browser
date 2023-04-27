@@ -8,6 +8,11 @@ const StyledGlobal = createGlobalStyle`
     *, ::after, ::before {
         box-sizing: inherit;
     }
+
+    body {
+        font-style: normal;
+        margin: 0;
+    }
 `
 
 export default StyledGlobal;
