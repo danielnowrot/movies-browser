@@ -1,9 +1,7 @@
-import Root from './Routes/Root/index';
+import Root from "./Routes/Root/index";
 
 function App() {
-  return (
-    <Root />
-  );
+  return <Root />;
 }
 
 export default App;

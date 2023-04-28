@@ -1,13 +1,13 @@
-import React, { Children } from 'react';
-import ReactDOM from 'react-dom/client';
-import reportWebVitals from './reportWebVitals';
-import StyledGlobal from './styled';
-import theme from './theme';
-import App from './App';
-import Movies from './Routes/Movies/index';
-import People from './Routes/People/index';
-import { createHashRouter, RouterProvider } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
+import React, { Children } from "react";
+import ReactDOM from "react-dom/client";
+import reportWebVitals from "./reportWebVitals";
+import StyledGlobal from "./styled";
+import theme from "./theme";
+import App from "./App";
+import Movies from "./Routes/Movies/index";
+import People from "./Routes/People/index";
+import { createHashRouter, RouterProvider } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
 
 const router = createHashRouter([
   {
@@ -15,18 +15,18 @@ const router = createHashRouter([
     element: <App />,
     children: [
       {
-        path:"movies",
-        element: <Movies />
+        path: "movies",
+        element: <Movies />,
       },
       {
-        path:"people",
-        element: <People />
-      }
-    ]
-  }
-])
+        path: "people",
+        element: <People />,
+      },
+    ],
+  },
+]);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
