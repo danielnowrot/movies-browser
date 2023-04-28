@@ -84,7 +84,7 @@ export const StyledNavLink = styled(NavLink)`
     text-decoration: none;
     
     &.active {
-        border: 1px solid #FFFFFF;
+        outline: 1px solid #FFFFFF;
         border-radius: 24px;
     }
 
