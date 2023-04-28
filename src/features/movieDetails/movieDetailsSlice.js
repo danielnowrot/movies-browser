@@ -9,7 +9,7 @@ const movieDetailsSlice = createSlice({
   reducers: {
     axiosMovieDetails: () => ({
       status: "loading",
-      repositories: null,
+      movieDetails: null,
     }),
     axiosMovieDetailsSuccess: (_, { payload: movieDetails }) => ({
       status: "success",
