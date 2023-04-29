@@ -22,6 +22,7 @@ const theme = {
     },
     breakpoints: {
         mobileMax: 767,
+        mobileMin: 471,
     }
 };
 
