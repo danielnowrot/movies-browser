@@ -12,6 +12,7 @@ import { MovieList } from "./features/moveList/MovieList";
 import { MovieDetails } from "./features/movieDetails/MovieDetails";
 import { Provider } from "react-redux";
 import store from "./core/store";
+import { PersonList } from "./features/personList/PersonList";
 
 const router = createHashRouter([
   {
@@ -39,6 +40,7 @@ root.render(
         <StyledGlobal />
         <MovieList />
         <MovieDetails />
+        <PersonList />
       </Provider>
     </ThemeProvider>
   </React.StrictMode>
