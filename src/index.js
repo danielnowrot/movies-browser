@@ -8,6 +8,9 @@ import Movies from "./Routes/Movies/index";
 import People from "./Routes/People/index";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
+import { MovieList } from "./features/moveList/MovieList";
+import { Provider } from "react-redux";
+import store from "./core/store";
 
 const router = createHashRouter([
   {
@@ -30,8 +33,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <RouterProvider router={router} />
-      <StyledGlobal />
+      <Provider store={store}>
+        <RouterProvider router={router} />
+        <StyledGlobal />
+        <MovieList />
+      </Provider>
     </ThemeProvider>
   </React.StrictMode>
 );
