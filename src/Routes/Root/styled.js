@@ -10,6 +10,7 @@ export const StyledHeader = styled.header`
     justify-content: space-around;
     height: ${({ theme }) => theme.topBar.thick}px;
     background-color: ${({ theme }) => theme.topBar.woodSmoke};
+    white-space: nowrap;
 
     @media (max-width: ${({ theme }) => theme.topBar.mediaSizeS}px) {
         flex-wrap: wrap;

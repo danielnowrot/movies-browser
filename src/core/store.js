@@ -10,6 +10,7 @@ const store = configureStore({
   reducer: {
     movieDetails: movieDetailsReducer,
     movieList: movieListReducer,
+    genreList: movieListReducer,
   },
   middleware: [sagaMiddleWare],
 });
