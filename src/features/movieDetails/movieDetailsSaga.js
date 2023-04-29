@@ -1,5 +1,5 @@
 import { call, delay, put, takeLatest } from "redux-saga/effects";
-import { getCredit } from "./movieDetailsAPI";
+import { getMovieDetails } from "./movieDetailsAPI";
 import {
   axiosMovieDetails,
   axiosMovieDetailsSuccess,
@@ -9,7 +9,7 @@ import {
 function* axiosMovieDetailsHandler() {
   try {
     yield delay(2000);
-    const movieDetails = yield call(getCredit);
+    const movieDetails = yield call(getMovieDetails);
     console.log(movieDetails);
     yield put(axiosMovieDetailsSuccess(movieDetails));
   } catch (error) {
