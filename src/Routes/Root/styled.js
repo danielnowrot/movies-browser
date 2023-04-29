@@ -132,5 +132,9 @@ export const StyledIcon = styled.div`
 `;
 
 export const StyledSection = styled.section`
-
+    max-width: 1368px;
+    margin: auto;
+    margin-top: 56px;
+    display: flex;
+    flex-direction: column;
 `;
