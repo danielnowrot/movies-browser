@@ -14,6 +14,7 @@ import { Provider } from "react-redux";
 import store from "./core/store";
 import { PersonList } from "./features/personList/PersonList";
 import { PersonDetails } from "./features/personDetails/PersonDetails";
+import { Container } from "./core/Container";
 
 const router = createHashRouter([
   {
@@ -38,11 +39,13 @@ root.render(
     <ThemeProvider theme={theme}>
       <Provider store={store}>
         <RouterProvider router={router} />
-        <StyledGlobal />
-        <MovieList />
-        <MovieDetails />
-        <PersonList />
-        <PersonDetails />
+        <Container>
+          <StyledGlobal />
+          <MovieList />
+          <MovieDetails />
+          <PersonList />
+          <PersonDetails />
+        </Container>
       </Provider>
     </ThemeProvider>
   </React.StrictMode>
