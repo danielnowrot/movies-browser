@@ -14,16 +14,12 @@ const Movies = () => {
     const loadingGeners = useSelector(selectGenreListState);
     const loadingMovies = (useSelector(selectMovieListState));
     const URL = "https://www.themoviedb.org/t/p/w440_and_h660_face/";
-    console.log(fetchData);
-        console.log(fetchGenre);
 
     if (loadingMovies.status === "success" && loadingGeners.status === "success") {
         const moviesList = fetchData.results;
         const genreList = fetchGenre.genres;
         const genres = [];
         
-        console.log(moviesList);
-        console.log(genreList);
         return (
             <>
                 <StyledTitle>
