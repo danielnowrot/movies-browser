@@ -32,7 +32,7 @@ export const StyledName = styled.div`
     font-weight: 500;
     font-size: 22px;
     line-height: 130%;
-    margin-bottom: 8px;
+    margin: 16px 0 8px 0;
 `;
 
 export const StyledYear = styled.div`
