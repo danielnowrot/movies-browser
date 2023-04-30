@@ -9,6 +9,7 @@ export const StyledTitle = styled.div`
 
 export const StyledMovies = styled.div`
     display: grid;
+    gap: 24px;
     grid-template-columns: repeat(auto-fill, 324px);
 `;
 
@@ -16,6 +17,7 @@ export const StyledMovie = styled.div`
     width: 324px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     background: #FFFFFF;
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
     border-radius: 5px;
@@ -56,6 +58,9 @@ export const StyledGenre = styled.div`
     background: #E4E6F0;
     border-radius: 5px;
     padding: 8px 16px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
 `;
 
 export const StyledRate = styled.div`

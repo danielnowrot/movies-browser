@@ -13,20 +13,14 @@ const Movies = () => {
     const loadingGeners = useSelector(selectGenreListState);
     const loadingMovies = (useSelector(selectMovieListState));
     const URL = "https://www.themoviedb.org/t/p/w440_and_h660_face/";
-    const listGenres = [];
+
 
     if (loadingMovies.status === "success" && loadingGeners.statusGenre === "success") {
         const moviesList = fetchData.results;
         const genreList = fetchGenre.genres;
         const genres = [];
 
-        const getGenres = () => {
-            (moviesList[0].genre_ids).forEach((element, index) => {
-                genres[index] = (genreList.filter(({ id }) => id === element)).map(({ name }) => name)
-            })
-        }
-
-        getGenres()
+   
 
         return (
             <>
@@ -34,27 +28,34 @@ const Movies = () => {
                     Popular movies
                 </StyledTitle>
                 <StyledMovies>
-                    <StyledMovie>
-                        <StyledImg src={`${URL}${moviesList[0].poster_path}`} />
-                        <StyledName>
-                            {moviesList[0].original_title}
-                        </StyledName>
-                        <StyledYear>
-                            {(moviesList[0].release_date).slice(0, 4)}
-                        </StyledYear>
-                        <StyledGenres>
-                            {genres.map(list => <StyledGenre key={list}>{list}</StyledGenre>)}
-                        </StyledGenres>
-                        <StyledRate>
-                            <StyledStar src={star} />
-                            <StyledAvarage>
-                                {moviesList[0].vote_average}
-                            </StyledAvarage>
-                            <StyledVotes>
-                                {moviesList[0].vote_count} {moviesList[0].vote_count !== 1 ? "votes" : "vote"}
-                            </StyledVotes>
-                        </StyledRate>
-                    </StyledMovie>
+                    {moviesList.map(movie => {
+                        return (
+                            <StyledMovie>
+                                <StyledImg src={`${URL}${movie.poster_path}`} />
+                                <StyledName>
+                                    {movie.original_title}
+                                </StyledName>
+                                <StyledYear>
+                                    {(movie.release_date).slice(0, 4)}
+                                </StyledYear>
+                                <StyledGenres>
+                                    {(movie.genre_ids).forEach((element, index) => {
+                                        genres[index] = (genreList.filter(({ id }) => id === element)).map(({ name }) => name)
+                                    })}
+                                    {genres.map(list => <StyledGenre key={list}>{list}</StyledGenre>)}
+                                </StyledGenres>
+                                <StyledRate>
+                                    <StyledStar src={star} />
+                                    <StyledAvarage>
+                                        {movie.vote_average}
+                                    </StyledAvarage>
+                                    <StyledVotes>
+                                        {movie.vote_count} {movie.vote_count !== 1 ? "votes" : "vote"}
+                                    </StyledVotes>
+                                </StyledRate>
+                            </StyledMovie>
+                        )
+                    })}
                 </StyledMovies>
             </>
         )
