@@ -9,8 +9,11 @@ import People from "./Routes/People/index";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { MovieList } from "./features/moveList/MovieList";
+import { MovieDetails } from "./features/movieDetails/MovieDetails";
 import { Provider } from "react-redux";
 import store from "./core/store";
+import { PersonList } from "./features/personList/PersonList";
+import { PersonDetails } from "./features/personDetails/PersonDetails";
 
 const router = createHashRouter([
   {
@@ -37,6 +40,9 @@ root.render(
         <RouterProvider router={router} />
         <StyledGlobal />
         <MovieList />
+        <MovieDetails />
+        <PersonList />
+        <PersonDetails />
       </Provider>
     </ThemeProvider>
   </React.StrictMode>
