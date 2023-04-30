@@ -5,12 +5,14 @@ export const StyledTitle = styled.div`
     font-size: 36px;
     line-height: 120%;
     padding-bottom: 24px;
+    margin: 0 16px;
 `;
 
 export const StyledMovies = styled.div`
     display: grid;
     gap: 24px;
     grid-template-columns: repeat(auto-fill, 324px);
+    margin: 0 16px;
 `;
 
 export const StyledMovie = styled.div`

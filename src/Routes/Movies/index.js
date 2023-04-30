@@ -20,8 +20,6 @@ const Movies = () => {
         const genreList = fetchGenre.genres;
         const genres = [];
 
-   
-
         return (
             <>
                 <StyledTitle>

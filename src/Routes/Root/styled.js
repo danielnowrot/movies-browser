@@ -133,7 +133,7 @@ export const StyledIcon = styled.div`
 `;
 
 export const StyledSection = styled.section`
-    max-width: 1368px;
+    max-width: 1400px;
     margin: auto;
     margin-top: 56px;
     display: flex;
