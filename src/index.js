@@ -42,7 +42,7 @@ root.render(
         <Container>
           <StyledGlobal />
           <MovieList />
-          <MovieDetails />
+          {/* <MovieDetails /> */}
           <PersonList />
           <PersonDetails />
         </Container>
