@@ -1,8 +1,8 @@
 import { call, delay, put, takeLatest } from "redux-saga/effects";
 import { getPopularMovieAPI, getGenreMovieAPI } from "./movieListAPI";
 import {
-  axiosMovieList,
-  axiosMovieListSuccess,
+  axiosMovieList, 
+  axiosMovieListSuccess, 
   axiosMovieListError,
 } from "./movieListSlice";
 

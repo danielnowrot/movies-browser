@@ -4,19 +4,19 @@ const genreListSlice = createSlice({
   name: "movieList",
   initialState: {
     genreList: null,
-    statusGenre: "initial",
+    status: "initial",
   },
   reducers: {
     axiosGenreList: () => ({
-      statusGenre: "loading",
+      status: "loading",
       genreList: null,
     }),
     axiosGenreListSuccess: (_, { payload: genreList }) => ({
-      statusGenre: "success",
+      status: "success",
       genreList,
     }),
     axiosGenreListError: () => ({
-      statusGenre: "error",
+      status: "error",
       genreList: null,
     }),
   },
