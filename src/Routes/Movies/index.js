@@ -14,12 +14,11 @@ const Movies = () => {
     const loadingMovies = (useSelector(selectMovieListState));
     const URL = "https://www.themoviedb.org/t/p/w440_and_h660_face/";
 
-
     if (loadingMovies.status === "success" && loadingGeners.statusGenre === "success") {
         const moviesList = fetchData.results;
         const genreList = fetchGenre.genres;
         const genres = [];
-
+        
         return (
             <>
                 <StyledTitle>
@@ -28,7 +27,7 @@ const Movies = () => {
                 <StyledMovies>
                     {moviesList.map(movie => {
                         return (
-                            <StyledMovie>
+                            <StyledMovie key={movie.id}>
                                 <StyledImg src={`${URL}${movie.poster_path}`} />
                                 <StyledName>
                                     {movie.original_title}
@@ -40,7 +39,7 @@ const Movies = () => {
                                     {(movie.genre_ids).forEach((element, index) => {
                                         genres[index] = (genreList.filter(({ id }) => id === element)).map(({ name }) => name)
                                     })}
-                                    {genres.map(list => <StyledGenre key={list}>{list}</StyledGenre>)}
+                                    {genres.map((list, index)=> <StyledGenre key={index}>{list}</StyledGenre>)}
                                 </StyledGenres>
                                 <StyledRate>
                                     <StyledStar src={star} />

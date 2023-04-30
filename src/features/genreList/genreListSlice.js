@@ -4,7 +4,7 @@ const genreListSlice = createSlice({
   name: "movieList",
   initialState: {
     genreList: null,
-    status: "initial",
+    statusGenre: "initial",
   },
   reducers: {
     axiosGenreList: () => ({
