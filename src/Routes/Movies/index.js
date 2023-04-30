@@ -1,7 +1,7 @@
 import {
     StyledTitle, StyledMovies, StyledMovie, StyledImg,
-    StyledName, StyledYear, StyledGenre, StyledRate,
-    StyledStar, StyledAvarage, StyledVotes
+    StyledName, StyledYear, StyledGenres, StyledRate,
+    StyledStar, StyledAvarage, StyledVotes, StyledGenre
 } from "./styled";
 import star from "../../Images/star.svg";
 import { useSelector } from "react-redux";
@@ -13,10 +13,21 @@ const Movies = () => {
     const loadingGeners = useSelector(selectGenreListState);
     const loadingMovies = (useSelector(selectMovieListState));
     const URL = "https://www.themoviedb.org/t/p/w440_and_h660_face/";
-    
-    if (loadingMovies.status === "success" && loadingGeners.status === "success") {
+    const listGenres = [];
+
+    if (loadingMovies.status === "success" && loadingGeners.statusGenre === "success") {
         const moviesList = fetchData.results;
-        console.log(fetchGenre)
+        const genreList = fetchGenre.genres;
+        const genres = [];
+
+        const getGenres = () => {
+            (moviesList[0].genre_ids).forEach((element, index) => {
+                genres[index] = (genreList.filter(({ id }) => id === element)).map(({ name }) => name)
+            })
+        }
+
+        getGenres()
+
         return (
             <>
                 <StyledTitle>
@@ -31,9 +42,9 @@ const Movies = () => {
                         <StyledYear>
                             {(moviesList[0].release_date).slice(0, 4)}
                         </StyledYear>
-                        <StyledGenre>
-                            {moviesList[0].genre_ids}
-                        </StyledGenre>
+                        <StyledGenres>
+                            {genres.map(list => <StyledGenre key={list}>{list}</StyledGenre>)}
+                        </StyledGenres>
                         <StyledRate>
                             <StyledStar src={star} />
                             <StyledAvarage>

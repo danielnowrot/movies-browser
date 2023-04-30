@@ -14,7 +14,6 @@ export const StyledMovies = styled.div`
 
 export const StyledMovie = styled.div`
     width: 324px;
-    height: 650px;
     display: flex;
     flex-direction: column;
     background: #FFFFFF;
@@ -44,8 +43,19 @@ export const StyledYear = styled.div`
     margin-bottom: 8px;
 `;
 
-export const StyledGenre = styled.div`
+export const StyledGenres = styled.div`
+    display: flex;
+    flex-wrap: wrap;
     margin-bottom: 39px;
+    gap: 8px;
+`;
+
+export const StyledGenre = styled.div`
+    display: flex;
+    align-items: center;
+    background: #E4E6F0;
+    border-radius: 5px;
+    padding: 8px 16px;
 `;
 
 export const StyledRate = styled.div`

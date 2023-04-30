@@ -1,10 +1,12 @@
 import { call, delay, put, takeLatest } from "redux-saga/effects";
 import { getPopularMovieAPI, getGenreMovieAPI } from "./movieListAPI";
 import {
-  axiosMovieList, axiosGenreList,
-  axiosMovieListSuccess, axiosGenreListSuccess,
-  axiosMovieListError, axiosGenreListError,
+  axiosMovieList,
+  axiosMovieListSuccess,
+  axiosMovieListError,
 } from "./movieListSlice";
+
+import { axiosGenreList, axiosGenreListSuccess, axiosGenreListError } from "../genreList/genreListSlice";
 
 function* axiosMovieListHandler() {
   try {

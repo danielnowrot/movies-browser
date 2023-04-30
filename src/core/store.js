@@ -3,6 +3,7 @@ import createSagaMiddleware from "@redux-saga/core";
 import rootSaga from "./rootSaga";
 import movieDetailsReducer from "../features/movieDetails/movieDetailsSlice";
 import movieListReducer from "../features/moveList/movieListSlice";
+import genreListReducer from "../features/genreList/genreListSlice";
 
 const sagaMiddleWare = createSagaMiddleware();
 
@@ -10,7 +11,7 @@ const store = configureStore({
   reducer: {
     movieDetails: movieDetailsReducer,
     movieList: movieListReducer,
-    genreList: movieListReducer,
+    genreList: genreListReducer,
   },
   middleware: [sagaMiddleWare],
 });
