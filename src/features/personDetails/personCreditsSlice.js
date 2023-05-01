@@ -4,20 +4,26 @@ const personCreditsSlice = createSlice({
   name: "personCredits",
   initialState: {
     status: "initial",
-    personCredits: null,
+    personCredits: [],
+    // people: [],
+    totalPages: 0,
+    totalResults: 0,
   },
   reducers: {
     axiosPersonCredits: () => ({
       status: "loading",
-      personCredits: null,
+      // personCredits: null,
     }),
     axiosPersonCreditsSuccess: (_, { payload: personCredits}) => ({
       status: "success",
-      personCredits,
+      personCredits: personCredits.results,
+      // people: people.results,
+      totalPages: personCredits.total_pages,
+      totalResults: personCredits.total_results,
     }),
     axiosPersonCreditsError: () => ({
       status: "error",
-      personCredits: null,
+      // personCredits: null,
     }),
   },
 });
@@ -29,6 +35,12 @@ export const selectPersonCredits = (state) =>
 
 export const selectPersonCreditsStatus = (state) =>
   selectPersonCreditsState(state).status;
+
+export const selectPersonCreditsTotalPages = (state) =>  
+  selectPersonCreditsState(state).totalPages;
+
+export const selectPersonCreditsResults = (state) =>
+  selectPersonCreditsState(state).totalResults;  
 
 export const {
   axiosPersonCredits,
