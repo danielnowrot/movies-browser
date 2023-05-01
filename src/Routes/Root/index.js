@@ -5,8 +5,7 @@ import {
     StyledSection
 } from "./styled";
 import camera from "../../Images/camera.svg";
-import { Outlet } from "react-router-dom";
-import { PeopleList } from "../../features/people/PeopleList"
+import { Outlet } from "react-router-dom"
 
 const Root = () => {
 
