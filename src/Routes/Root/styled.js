@@ -10,6 +10,7 @@ export const StyledHeader = styled.header`
     justify-content: space-around;
     height: ${({ theme }) => theme.topBar.thick}px;
     background-color: ${({ theme }) => theme.topBar.woodSmoke};
+    white-space: nowrap;
 
     @media (max-width: ${({ theme }) => theme.topBar.mediaSizeS}px) {
         flex-wrap: wrap;
@@ -132,5 +133,9 @@ export const StyledIcon = styled.div`
 `;
 
 export const StyledSection = styled.section`
-
+    max-width: 1400px;
+    margin: auto;
+    margin-top: 56px;
+    display: flex;
+    flex-direction: column;
 `;
