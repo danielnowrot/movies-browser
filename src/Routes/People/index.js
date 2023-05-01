@@ -1,5 +1,7 @@
+import  PopularPeople  from "../../features/people/PeopleList";
+
 const People = () => {
-    return <p>People</p>
+    return <PopularPeople/>
 };
 
 export default People;
