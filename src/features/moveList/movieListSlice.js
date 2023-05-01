@@ -22,14 +22,14 @@ const movieListSlice = createSlice({
   },
 });
 
-const selectMovieListState = (state) => state.movieList;
+export const selectMovieListState = (state) => state.movieList;
 
 export const selectMovieList = (state) => selectMovieListState(state).movieList;
 
 export const selectMovieListStatus = (state) =>
   selectMovieListState(state).status;
 
-export const { axiosMovieList, axiosMovieListSuccess, axiosMovieListError } =
+export const { axiosMovieList, axiosMovieListSuccess, axiosMovieListError} =
   movieListSlice.actions;
 
 export default movieListSlice.reducer;
