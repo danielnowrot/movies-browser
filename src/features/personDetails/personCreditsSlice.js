@@ -4,42 +4,34 @@ const personCreditsSlice = createSlice({
   name: "personCredits",
   initialState: {
     status: "initial",
-    people: [],
-    totalPages: 0,
-    totalResults: 0,
+    personCredits: null,
   },
   reducers: {
-    axiosPersonCreditsLoading: () => ({
+    axiosPersonCredits: () => ({
       status: "loading",
+      personCredits: null,
     }),
-    axiosPersonCreditsSuccess: (_, { payload: people }) => ({
+    axiosPersonCreditsSuccess: (_, { payload: personCredits}) => ({
       status: "success",
-      people: people.results,
-      totalPages: people.total_pages,
-      totalResults: people.total_results,
+      personCredits,
     }),
     axiosPersonCreditsError: () => ({
       status: "error",
+      personCredits: null,
     }),
   },
 });
 
-export const selectPersonCreditsState = (state) => state.personCredits;
+const selectPersonCreditsState = (state) => state.personCredits;
 
 export const selectPersonCredits = (state) =>
-  selectPersonCreditsState(state).people;
+  selectPersonCreditsState(state).personCredits;
 
 export const selectPersonCreditsStatus = (state) =>
   selectPersonCreditsState(state).status;
-  
-export const selectPersonCreditsTotalPages = (state) =>
-  selectPersonCreditsState(state).totalPages;
-  
-export const selectPersonCreditsResults = (state) =>
-  selectPersonCreditsState(state).totalResults;
 
 export const {
-  axiosPersonCreditsLoading,
+  axiosPersonCredits,
   axiosPersonCreditsSuccess,
   axiosPersonCreditsError,
 } = personCreditsSlice.actions;

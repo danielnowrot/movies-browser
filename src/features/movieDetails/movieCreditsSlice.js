@@ -3,13 +3,13 @@ import { createSlice } from "@reduxjs/toolkit";
 const movieCreditsSlice = createSlice({
   name: "movieCredits",
   initialState: {
-    movieCredits: null,
+    movieCredits: {} || null,
     status: "initial",
   },
   reducers: {
     axiosMovieCredits: () => ({
       status: "loading",
-      movieCredits: null,
+      movieCredits: {} || null,
     }),
     axiosMovieCreditsSuccess: (_, { payload: movieCredits }) => ({
       status: "success",
