@@ -44,6 +44,7 @@ export const Name = styled.p`
   margin: 12px 0 0 0;
   color: ${({ theme }) => theme.colors.woodsmoke};
   word-break: break-word;
+  white-space: normal;
   @media (max-width: ${mobileMinBreakpoint}px) {
     font-size: 14px;
     margin: 8px 0 0 0;
