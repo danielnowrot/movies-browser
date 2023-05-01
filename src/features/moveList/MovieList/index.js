@@ -10,5 +10,8 @@ export const MovieList = () => {
     dispatch(axiosGenreList());
     dispatch(axiosMovieList());
   }, [dispatch]);
-
+  
+  return <div>{/* lista popularnych filmów: */}</div>;
 };
+
+
