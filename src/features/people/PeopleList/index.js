@@ -3,21 +3,26 @@ import { Container } from "../../../core/Container";
 import { SectionTitle } from "../../../core/SectionTitle";
 import { PersonTile } from "../PersonTile";
 import {
-    axiosPersonCreditsLoading,
+    axiosPersonCredits,
     selectPersonCredits,
     selectPersonCreditsStatus,
     selectPersonCreditsTotalPages,
     selectPersonCreditsResults
-} from "../personCreditsSlice";
+} from "../../personDetails/personCreditsSlice";
 import { useSearchParams } from "react-router-dom";
+import { searchQueryParamName } from "../../useQueryParameter";
 import { useEffect } from "react";
 import { Main } from "../../../core/Main";
+import { Loading } from "../../../core/status/Loading";
+import { Error } from "../../../core/status/Error";
+import { NoResults } from "../../../core/status/NoResults";
+import { Grid } from "../../../core/Grid";
 
 const PopularPeople = () => {
     const dispatch = useDispatch();
-    const people = useSelector(selectPersonCredits);
+    const personCredits = useSelector(selectPersonCredits);
     const stateOfLoading = useSelector(selectPersonCreditsStatus);
-    const totalPages = useSelector(selectPersonCreditsTotalPages);
+    // const totalPages = useSelector(selectPersonCreditsTotalPages);
     const totalResults = useSelector(selectPersonCreditsResults);
 
     const [searchParams] = useSearchParams({ page: 1});
@@ -25,7 +30,7 @@ const PopularPeople = () => {
     const query = searchParams.get(searchQueryParamName) || null;
 
     useEffect(() => {
-        dispatch(axiosPersonCreditsLoading({ page, query}));
+        dispatch(axiosPersonCredits({ page, query }));
     }, [dispatch, page, query]);
 
   return (
@@ -36,19 +41,19 @@ const PopularPeople = () => {
         <Error />
     ) : (
         <Main>
-            {!people.length ? (
-                <NoResult query={query} />
+            {!personCredits.length ? (
+                <NoResults query={query} />
             ) : (
                 <>
                 <Container>
-                    <Section>
+                    <section>
                         <SectionTitle peopleList>
                             {query ? `Search results for "${query}" (${totalResults})`
                             : "People list"}
                         </SectionTitle>
-                        {people && people.length > 0 && (
-                            <GridList popularPeople>
-                                {people.map(({ profile_path, id, name }) => (
+                        {personCredits && personCredits.length > 0 && (
+                            <Grid popularPeople>
+                                {personCredits.map(({ profile_path, id, name }) => (
                                     <li key={id}>
                                         <PersonTile
                                         id={id}
@@ -57,9 +62,9 @@ const PopularPeople = () => {
                                         />
                                     </li>
                                 ))}
-                            </GridList>
+                            </Grid>
                         )}
-                    </Section>
+                    </section>
                 </Container>
                 </>
             )}

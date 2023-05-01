@@ -6,10 +6,17 @@ import {
   axiosPersonCreditsError,
 } from "./personCreditsSlice";
 
-function* axiosPersonCreditsHandler() {
+function* axiosPersonCreditsHandler({payload: page}) {
+  const base = "https://api.themoviedb.org/3";
+  const key = "?api_key=25dc6b875063fb2a5cdc0fd9237d002d";
+  const language = "&language=en-US";
+
+  const path =    
+       `${base}/person/popular${key}${language}&page=${page}`;
+
   try {
     yield delay(2000);
-    const personCredits = yield call(getPersonCredits);
+    const personCredits = yield call(getPersonCredits, path );
     console.log(personCredits);
     yield put(axiosPersonCreditsSuccess(personCredits));
   } catch (error) {
