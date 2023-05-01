@@ -11,6 +11,7 @@ import {
 } from "../personCreditsSlice";
 import { useSearchParams } from "react-router-dom";
 import { useEffect } from "react";
+import { Main } from "../../../core/Main";
 
 const PopularPeople = () => {
     const dispatch = useDispatch();
@@ -68,3 +69,5 @@ const PopularPeople = () => {
     </>
   )  
 };
+
+export default PopularPeople;
