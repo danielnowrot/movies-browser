@@ -9,7 +9,7 @@ export const StyledHeader = styled.header`
     padding: 0 12px;
     justify-content: space-around;
     height: ${({ theme }) => theme.breakpoints.topBar.thick}px;
-    background-color: ${({ theme }) => theme.breakpoints.topBar.woodSmoke};
+    background-color: ${({ theme }) => theme.colors.woodsmoke};
     white-space: nowrap;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.topBar.mediaSizeS}px) {

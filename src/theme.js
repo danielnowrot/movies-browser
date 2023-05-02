@@ -16,9 +16,8 @@ const theme = {
     breakpoints: {
         mobileMax: 767,
         tilesMax: 324,
-        tilesMin: 288,
+        tilesMin: 256,
         topBar: {
-            woodSmoke: "#18181B",
             thick: 94,
             mediaThickS: 142,
             mediaSizeS: 470,
