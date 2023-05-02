@@ -1,3 +1,5 @@
+- Connect with the page: [click](https://danielnowrot.github.io/movies-browser)
+
 - [! Under construction !](#-under-construction-)
   - [Available Scripts](#available-scripts)
     - [`npm start`](#npm-start)
@@ -10,6 +12,7 @@
 [Under construction](https://danielnowrot.github.io/movies-browser/)
 
 ![image](public/construction.jpg)
+
 ## Available Scripts
 
 In the project directory, you can run:
