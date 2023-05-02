@@ -35,6 +35,12 @@ export const StyledMovie = styled.div`
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
     border-radius: 5px;
     padding: 16px;
+    transition: 0.3s;
+
+    &:hover {
+        transform: translate(0px, -2%);
+        cursor: pointer;
+    }
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         flex-direction: row;
