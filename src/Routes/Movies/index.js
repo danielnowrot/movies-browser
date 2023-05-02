@@ -1,7 +1,8 @@
 import {
     StyledTitle, StyledMovies, StyledMovie, StyledImg,
     StyledName, StyledYear, StyledGenres, StyledRate,
-    StyledStar, StyledAvarage, StyledVotes, StyledGenre
+    StyledStar, StyledAvarage, StyledVotes, StyledGenre,
+    StyledDetails
 } from "./styled";
 import star from "../../Images/star.svg";
 import { useSelector } from "react-redux";
@@ -31,7 +32,7 @@ const Movies = () => {
                         return (
                             <StyledMovie key={movie.id}>
                                 <StyledImg src={`${URL}${movie.poster_path}`} />
-                                <div>
+                                <StyledDetails>
                                     <StyledName>
                                         {movie.original_title}
                                     </StyledName>
@@ -53,7 +54,7 @@ const Movies = () => {
                                             {movie.vote_count} {movie.vote_count !== 1 ? "votes" : "vote"}
                                         </StyledVotes>
                                     </StyledRate>
-                                </div>
+                                </StyledDetails>
                             </StyledMovie>
                         )
                     })}

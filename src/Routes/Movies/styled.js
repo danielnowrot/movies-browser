@@ -31,7 +31,6 @@ export const StyledMovie = styled.div`
     display: flex;
     max-width: 324px;
     flex-direction: column;
-    justify-content: space-between;
     background: #FFFFFF;
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
     border-radius: 5px;
@@ -51,6 +50,13 @@ export const StyledImg = styled.img`
         height: 169px;
     }
 `;
+
+export const StyledDetails = styled.div`
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+`
 
 export const StyledName = styled.div`
     font-weight: 500;
