@@ -4,13 +4,19 @@ export const SectionCastCrew = styled.section``;
 
 export const Wrapper = styled.div``;
 
+export const Alignment = styled.div`
+  display: grid;
+  grid-template-rows: auto auto;
+`;
+
 export const List = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
   list-style: none;
   padding: 0;
   margin: 0;
   justify-content: center;
+  display: grid;
+  grid-gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(208px, 1fr));
 `;
 
 export const Tile = styled.div`
@@ -19,8 +25,6 @@ export const Tile = styled.div`
   align-items: center;
   padding: 10px 15px 14px 16px;
   background: ${({ theme }) => theme.colors.white};
-  margin-right: 24px;
-  margin-bottom: 24px;
 `;
 
 export const Photo = styled.img`
@@ -32,9 +36,26 @@ export const Photo = styled.img`
 export const Name = styled.p`
   margin: 0px;
   padding-top: 14px;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 130%;
+  color: ${({ theme }) => theme.colors.woodsmoke};
 `;
 
 export const Character = styled.p`
   margin: 0;
   padding-top: 8px;
+  font-size: 18px;
+  line-height: 150%;
+  color: ${({ theme }) => theme.colors.waterloo};
+`;
+
+export const NoPathWrapper = styled.div`
+  background: ${({ theme }) => theme.colors.silver};
+  width: 100%;
+  height: 264px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
 `;
