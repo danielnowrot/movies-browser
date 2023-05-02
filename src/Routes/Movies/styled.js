@@ -8,6 +8,10 @@ export const StyledTitle = styled.div`
     padding-bottom: 24px;
     white-space: nowrap;
     margin-bottom: -24px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        font-size: 18px;
+    }
 `;
 
 export const StyledMovies = styled.div`
@@ -16,6 +20,11 @@ export const StyledMovies = styled.div`
     gap: 24px;
     margin: 0 16px;
     justify-content: center;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        grid-template-columns: repeat(auto-fit, 288px);
+        gap: 16px;
+    }
 `;
 
 export const StyledMovie = styled.div`
@@ -27,10 +36,20 @@ export const StyledMovie = styled.div`
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
     border-radius: 5px;
     padding: 16px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        flex-direction: row;
+        gap: 16px;
+    }
 `;
 
 export const StyledImg = styled.img`
     width: 100%;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        width: 114px;
+        height: 169px;
+    }
 `;
 
 export const StyledName = styled.div`
@@ -38,6 +57,11 @@ export const StyledName = styled.div`
     font-size: 22px;
     line-height: 130%;
     margin: 16px 0 8px 0;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        margin: 0px;
+        font-size: 16px;
+    }
 `;
 
 export const StyledYear = styled.div`
@@ -46,6 +70,12 @@ export const StyledYear = styled.div`
     line-height: 150%;
     color: #7E839A;
     margin-bottom: 8px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        font-size: 13px;
+        line-height: 130%;
+        margin: 4px 0 8px 0;
+    }
 `;
 
 export const StyledGenres = styled.div`
@@ -53,6 +83,10 @@ export const StyledGenres = styled.div`
     flex-wrap: wrap;
     margin-bottom: 39px;
     gap: 8px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        margin: 0 0 8px 0;
+    }
 `;
 
 export const StyledGenre = styled.div`
@@ -64,17 +98,32 @@ export const StyledGenre = styled.div`
     font-weight: 400;
     font-size: 14px;
     line-height: 140%;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        font-size: 10px;
+        line-height: 110%;
+        padding: 4px 8px;
+    }
 `;
 
 export const StyledRate = styled.div`
     display: flex;
     align-items: center;
     gap: 12px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        gap: 8px;
+    }
 `;
 
 export const StyledStar = styled.img`
-    height: 16px;
-    width: 16.5px;
+    height: 24px;
+    width: 24px;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        height: 16px;
+        width: 15px;
+    }
 `;
 
 export const StyledAvarage = styled.div`
@@ -82,6 +131,11 @@ export const StyledAvarage = styled.div`
     font-size: 16px;
     line-height: 150%;
     color: #18181B;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        font-size: 13px;
+        line-height: 130%;
+    }
 `;
 
 export const StyledVotes = styled.div`
@@ -89,4 +143,9 @@ export const StyledVotes = styled.div`
     font-size: 16px;
     line-height: 150%;
     color: #7E839A;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        font-size: 13px;
+        line-height: 130%;
+    }
 `;

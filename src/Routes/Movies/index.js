@@ -31,27 +31,29 @@ const Movies = () => {
                         return (
                             <StyledMovie key={movie.id}>
                                 <StyledImg src={`${URL}${movie.poster_path}`} />
-                                <StyledName>
-                                    {movie.original_title}
-                                </StyledName>
-                                <StyledYear>
-                                    {(movie.release_date).slice(0, 4)}
-                                </StyledYear>
-                                <StyledGenres>
-                                    {(movie.genre_ids).forEach((element, index) => {
-                                        genres[index] = (genreList.filter(({ id }) => id === element)).map(({ name }) => name)
-                                    })}
-                                    {genres.map((list, index) => <StyledGenre key={index}>{list}</StyledGenre>)}
-                                </StyledGenres>
-                                <StyledRate>
-                                    <StyledStar src={star} />
-                                    <StyledAvarage>
-                                        {movie.vote_average}
-                                    </StyledAvarage>
-                                    <StyledVotes>
-                                        {movie.vote_count} {movie.vote_count !== 1 ? "votes" : "vote"}
-                                    </StyledVotes>
-                                </StyledRate>
+                                <div>
+                                    <StyledName>
+                                        {movie.original_title}
+                                    </StyledName>
+                                    <StyledYear>
+                                        {(movie.release_date).slice(0, 4)}
+                                    </StyledYear>
+                                    <StyledGenres>
+                                        {(movie.genre_ids).forEach((element, index) => {
+                                            genres[index] = (genreList.filter(({ id }) => id === element)).map(({ name }) => name)
+                                        })}
+                                        {genres.map((list, index) => <StyledGenre key={index}>{list}</StyledGenre>)}
+                                    </StyledGenres>
+                                    <StyledRate>
+                                        <StyledStar src={star} />
+                                        <StyledAvarage>
+                                            {movie.vote_average}
+                                        </StyledAvarage>
+                                        <StyledVotes>
+                                            {movie.vote_count} {movie.vote_count !== 1 ? "votes" : "vote"}
+                                        </StyledVotes>
+                                    </StyledRate>
+                                </div>
                             </StyledMovie>
                         )
                     })}
