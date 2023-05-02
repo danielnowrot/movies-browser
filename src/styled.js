@@ -15,6 +15,8 @@ const StyledGlobal = createGlobalStyle`
         font-style: normal;
         white-space: nowrap;
         background: ${({ theme }) => theme.colors.whisper};
+        word-break: break-word;
+        
     }
 `;
 

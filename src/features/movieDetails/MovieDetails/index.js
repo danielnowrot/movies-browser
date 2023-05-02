@@ -20,10 +20,11 @@ export const MovieDetails = () => {
 
   return (
     <Wrapper>
-      <Section movieCredits={movieCredits} title="GDZIE JEST TYTUŁ?!!!" />
-      {/* czy jest możliwe aby ten wyżej Section przekazał dalej moveCredits,
-      a jednocześnie dostał title i inne propsy, które chcę przekazać,
-      czy raczej nie robić tutaj Sectiona genreycznego? */}
+      <Section
+        movieCredits={movieCredits}
+        movieDetails={movieDetails}
+        title="Cast"
+      />
     </Wrapper>
   );
 };
