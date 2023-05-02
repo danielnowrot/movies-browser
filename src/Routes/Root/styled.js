@@ -8,21 +8,21 @@ export const StyledHeader = styled.header`
     gap: 40px;
     padding: 0 12px;
     justify-content: space-around;
-    height: ${({ theme }) => theme.topBar.thick}px;
-    background-color: ${({ theme }) => theme.topBar.woodSmoke};
+    height: ${({ theme }) => theme.breakpoints.topBar.thick}px;
+    background-color: ${({ theme }) => theme.breakpoints.topBar.woodSmoke};
     white-space: nowrap;
 
-    @media (max-width: ${({ theme }) => theme.topBar.mediaSizeS}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.topBar.mediaSizeS}px) {
         flex-wrap: wrap;
-        height: ${({ theme }) => theme.topBar.mediaThickS}px;
+        height: ${({ theme }) => theme.breakpoints.topBar.mediaThickS}px;
         align-content: center;
         justify-content: center;
         gap: 24px;
     }
 
-    @media (max-width: ${({ theme }) => theme.topBar.mediaSizeL}px) and 
-        (min-width: ${({ theme }) => theme.topBar.mediaSizeS}px) {
-        height: ${({ theme }) => theme.topBar.mediaThickS}px;
+    @media (max-width: ${({ theme }) => theme.breakpoints.topBar.mediaSizeL}px) and 
+        (min-width: ${({ theme }) => theme.breakpoints.topBar.mediaSizeS}px) {
+        height: ${({ theme }) => theme.breakpoints.topBar.mediaThickS}px;
         flex-wrap: wrap;
         gap: 0px;
     }
@@ -35,7 +35,7 @@ export const StyledBar = styled.div`
     align-items: center;
     gap: 12px;
 
-    @media (max-width: ${({ theme }) => theme.topBar.mediaSizeS}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.topBar.mediaSizeS}px) {
         flex-basis: 288px;
     }
 `;
@@ -54,7 +54,7 @@ export const StyledImg = styled.img`
     width: 40px;
     height: 40px;
 
-    @media (max-width: ${({ theme }) => theme.topBar.mediaSizeS}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.topBar.mediaSizeS}px) {
     width: 17px;
     height: 17px;    
     }
@@ -68,7 +68,7 @@ export const StyledTitle = styled.div`
     letter-spacing: -1.5px;
     text-transform: capitalize;
 
-    @media (max-width: ${({ theme }) => theme.topBar.mediaSizeS}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.topBar.mediaSizeS}px) {
         font-size: 13px;
         line-height: 130%;
     }
@@ -80,7 +80,7 @@ export const StyledNavLink = styled(NavLink)`
     font-size: 14px;
     line-height: 21px;
     padding: 14px 24px;
-    background-color: ${({ theme }) => theme.topBar.woodSmoke};
+    background-color: ${({ theme }) => theme.breakpoints.topBar.woodSmoke};
     text-transform: uppercase;
     text-decoration: none;
     
@@ -89,7 +89,7 @@ export const StyledNavLink = styled(NavLink)`
         border-radius: 24px;
     }
 
-    @media (max-width: ${({ theme }) => theme.topBar.mediaSizeS}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.topBar.mediaSizeS}px) {
         font-size: 12px;
         line-height: 18px;
         padding: 8px 12px;
@@ -108,7 +108,7 @@ export const StyledInput = styled.input`
     padding-left: 64px;
     padding-right: 16px;
 
-    @media (max-width: ${({ theme }) => theme.topBar.mediaSizeS}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.topBar.mediaSizeS}px) {
     width: 288px;
     padding-left: 40px;
     }
@@ -125,7 +125,7 @@ export const StyledIcon = styled.div`
   background-repeat: no-repeat;
   background-size: contain;
 
-  @media (max-width: ${({ theme }) => theme.topBar.mediaSizeS}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.topBar.mediaSizeS}px) {
     width: 13px;
     height: 13px;
     left: 16px;

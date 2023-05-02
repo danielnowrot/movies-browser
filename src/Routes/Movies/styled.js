@@ -16,7 +16,7 @@ export const StyledTitle = styled.div`
 
 export const StyledMovies = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(288px, max-content));
+    grid-template-columns: repeat(auto-fit, minmax(${({ theme }) => theme.breakpoints.tilesMin}px, max-content));
     gap: 24px;
     margin: 0 16px;
     justify-content: center;
@@ -29,7 +29,7 @@ export const StyledMovies = styled.div`
 
 export const StyledMovie = styled.div`
     display: flex;
-    max-width: 324px;
+    max-width: ${({ theme }) => theme.breakpoints.tilesMax}px;
     flex-direction: column;
     background: #FFFFFF;
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
