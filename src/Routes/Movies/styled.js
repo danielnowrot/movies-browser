@@ -1,23 +1,26 @@
 import styled from "styled-components";
 
 export const StyledTitle = styled.div`
+    grid-column: 1 / -1;
     font-weight: 600;
     font-size: 36px;
     line-height: 120%;
     padding-bottom: 24px;
-    margin: 0 16px;
+    white-space: nowrap;
+    margin-bottom: -24px;
 `;
 
 export const StyledMovies = styled.div`
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(288px, max-content));
     gap: 24px;
-    grid-template-columns: repeat(auto-fill, 324px);
     margin: 0 16px;
+    justify-content: center;
 `;
 
 export const StyledMovie = styled.div`
-    width: 324px;
     display: flex;
+    max-width: 324px;
     flex-direction: column;
     justify-content: space-between;
     background: #FFFFFF;
@@ -27,12 +30,10 @@ export const StyledMovie = styled.div`
 `;
 
 export const StyledImg = styled.img`
-    height: 434px;
-    width: 292px;
+    width: 100%;
 `;
 
 export const StyledName = styled.div`
-    width: 292px;
     font-weight: 500;
     font-size: 22px;
     line-height: 130%;

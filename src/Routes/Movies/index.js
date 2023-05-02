@@ -19,13 +19,14 @@ const Movies = () => {
         const moviesList = fetchData.results;
         const genreList = fetchGenre.genres;
         const genres = [];
-        
+
         return (
             <>
-                <StyledTitle>
-                    Popular movies
-                </StyledTitle>
+
                 <StyledMovies>
+                    <StyledTitle>
+                        Popular movies
+                    </StyledTitle>
                     {moviesList.map(movie => {
                         return (
                             <StyledMovie key={movie.id}>
@@ -40,7 +41,7 @@ const Movies = () => {
                                     {(movie.genre_ids).forEach((element, index) => {
                                         genres[index] = (genreList.filter(({ id }) => id === element)).map(({ name }) => name)
                                     })}
-                                    {genres.map((list, index)=> <StyledGenre key={index}>{list}</StyledGenre>)}
+                                    {genres.map((list, index) => <StyledGenre key={index}>{list}</StyledGenre>)}
                                 </StyledGenres>
                                 <StyledRate>
                                     <StyledStar src={star} />

@@ -22,6 +22,8 @@ const theme = {
     },
     breakpoints: {
         mobileMax: 767,
+        tilesMax: 324,
+        tilesMix: 288
     }
 };
 
