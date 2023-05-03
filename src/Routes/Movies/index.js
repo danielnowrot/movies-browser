@@ -1,7 +1,8 @@
 import {
-    StyledTitle, StyledMovies, StyledMovie, StyledImg,
+    StyledTitle, StyledMovies, StyledMovieLink, StyledImg,
     StyledName, StyledYear, StyledGenres, StyledRate,
-    StyledStar, StyledAvarage, StyledVotes, StyledGenre
+    StyledStar, StyledAvarage, StyledVotes, StyledGenre,
+    StyledDetails
 } from "./styled";
 import star from "../../Images/star.svg";
 import { useSelector } from "react-redux";
@@ -19,39 +20,41 @@ const Movies = () => {
         const moviesList = fetchData.results;
         const genreList = fetchGenre.genres;
         const genres = [];
-        
+
         return (
             <>
-                <StyledTitle>
-                    Popular movies
-                </StyledTitle>
                 <StyledMovies>
+                    <StyledTitle>
+                        Popular movies
+                    </StyledTitle>
                     {moviesList.map(movie => {
                         return (
-                            <StyledMovie key={movie.id}>
+                            <StyledMovieLink key={movie.id} to={`${movie.id}`}>     
                                 <StyledImg src={`${URL}${movie.poster_path}`} />
-                                <StyledName>
-                                    {movie.original_title}
-                                </StyledName>
-                                <StyledYear>
-                                    {(movie.release_date).slice(0, 4)}
-                                </StyledYear>
-                                <StyledGenres>
-                                    {(movie.genre_ids).forEach((element, index) => {
-                                        genres[index] = (genreList.filter(({ id }) => id === element)).map(({ name }) => name)
-                                    })}
-                                    {genres.map((list, index)=> <StyledGenre key={index}>{list}</StyledGenre>)}
-                                </StyledGenres>
-                                <StyledRate>
-                                    <StyledStar src={star} />
-                                    <StyledAvarage>
-                                        {movie.vote_average}
-                                    </StyledAvarage>
-                                    <StyledVotes>
-                                        {movie.vote_count} {movie.vote_count !== 1 ? "votes" : "vote"}
-                                    </StyledVotes>
-                                </StyledRate>
-                            </StyledMovie>
+                                <StyledDetails>
+                                    <StyledName>
+                                        {movie.original_title}
+                                    </StyledName>
+                                    <StyledYear>
+                                        {(movie.release_date).slice(0, 4)}
+                                    </StyledYear>
+                                    <StyledGenres>
+                                        {(movie.genre_ids).forEach((element, index) => {
+                                            genres[index] = (genreList.filter(({ id }) => id === element)).map(({ name }) => name)
+                                        })}
+                                        {genres.map((list, index) => <StyledGenre key={index}>{list}</StyledGenre>)}
+                                    </StyledGenres>
+                                    <StyledRate>
+                                        <StyledStar src={star} />
+                                        <StyledAvarage>
+                                            {movie.vote_average}
+                                        </StyledAvarage>
+                                        <StyledVotes>
+                                            {movie.vote_count} {movie.vote_count !== 1 ? "votes" : "vote"}
+                                        </StyledVotes>
+                                    </StyledRate>
+                                </StyledDetails>
+                            </StyledMovieLink>
                         )
                     })}
                 </StyledMovies>

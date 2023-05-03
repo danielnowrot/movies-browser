@@ -20,7 +20,7 @@ const Root = () => {
                         </StyledTitle>
                     </StyledMoviesBrowser>
                     <StyledNav>
-                        <StyledNavLink to={`movies`}>
+                        <StyledNavLink to={`movies/popular`}>
                             Movies
                         </StyledNavLink>
                         <StyledNavLink to={`people`}>

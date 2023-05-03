@@ -1,11 +1,4 @@
 const theme = {
-    topBar: {
-        woodSmoke: "#18181B",
-        thick: 94,
-        mediaThickS: 142,
-        mediaSizeS: 470,
-        mediaSizeL: 935
-    },
     colors: {
         whisper: "#F5F5FA",
         white: "#FFFFFF",
@@ -22,6 +15,14 @@ const theme = {
     },
     breakpoints: {
         mobileMax: 767,
+        tilesMax: 324,
+        tilesMin: 256,
+        topBar: {
+            thick: 94,
+            mediaThickS: 142,
+            mediaSizeS: 470,
+            mediaSizeL: 935
+        },
         mobileMin: 471,
     }
 };
