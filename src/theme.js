@@ -23,6 +23,7 @@ const theme = {
             mediaSizeS: 470,
             mediaSizeL: 935
         },
+        mobileMin: 471,
     }
 };
 
