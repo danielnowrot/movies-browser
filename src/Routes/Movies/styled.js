@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import styled from "styled-components";
 
 export const StyledTitle = styled.div`
@@ -27,7 +29,9 @@ export const StyledMovies = styled.div`
     }
 `;
 
-export const StyledMovie = styled.div`
+export const StyledMovieLink = styled(Link)`
+    color: ${({theme}) => theme.colors.woodsmoke};
+    text-decoration: none;
     display: flex;
     max-width: ${({ theme }) => theme.breakpoints.tilesMax}px;
     flex-direction: column;

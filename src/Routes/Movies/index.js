@@ -1,5 +1,5 @@
 import {
-    StyledTitle, StyledMovies, StyledMovie, StyledImg,
+    StyledTitle, StyledMovies, StyledMovieLink, StyledImg,
     StyledName, StyledYear, StyledGenres, StyledRate,
     StyledStar, StyledAvarage, StyledVotes, StyledGenre,
     StyledDetails
@@ -23,14 +23,13 @@ const Movies = () => {
 
         return (
             <>
-
                 <StyledMovies>
                     <StyledTitle>
                         Popular movies
                     </StyledTitle>
                     {moviesList.map(movie => {
                         return (
-                            <StyledMovie key={movie.id}>
+                            <StyledMovieLink key={movie.id} to={`${movie.id}`}>     
                                 <StyledImg src={`${URL}${movie.poster_path}`} />
                                 <StyledDetails>
                                     <StyledName>
@@ -55,7 +54,7 @@ const Movies = () => {
                                         </StyledVotes>
                                     </StyledRate>
                                 </StyledDetails>
-                            </StyledMovie>
+                            </StyledMovieLink>
                         )
                     })}
                 </StyledMovies>

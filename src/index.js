@@ -22,7 +22,7 @@ const router = createHashRouter([
     element: <App />,
     children: [
       {
-        path: "movies",
+        path: "movies/:movieId",
         element: <Movies />,
       },
       {
