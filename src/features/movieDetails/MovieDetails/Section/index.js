@@ -9,7 +9,7 @@ import {
 } from "./styled";
 import { SectionTitle } from "./SectionTitle";
 
-export const Section = ({ movieCredits }, { title }) => {
+export const Section = ({ movieCredits, title }) => {
   return (
     <SectionCastCrew>
       <SectionTitle>{title}</SectionTitle>

@@ -10,6 +10,7 @@ import { selectMovieList, selectMovieListStatus } from "../../features/moveList/
 import { selectGenreList, selectGenreListStatus } from "../../features/genreList/genreListSlice";
 import { Error } from "../../core/status/Error";
 import { Loading } from "../../core/status/Loading";
+import { Outlet } from "react-router-dom";
 
 const Movies = () => {
     const fetchData = useSelector(selectMovieList);
@@ -60,14 +61,18 @@ const Movies = () => {
                         )
                     })}
                 </StyledMovies>
+                <Outlet />
             </>
         )
     }
-    if (loadingMovies === "error" || loadingGeners === "error") {
-        return <Error />
-    }
-    if (loadingMovies === "loading" || loadingGeners === "loading") {
-        return <Loading />
+    else {
+        return (
+            loadingMovies === "loading" || loadingGeners === "loading" ?
+                <Loading /> :
+                loadingMovies === "error" || loadingGeners === "error" ?
+                <Error /> :
+                null
+        )
     }
 };
 
