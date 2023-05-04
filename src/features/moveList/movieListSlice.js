@@ -22,7 +22,7 @@ const movieListSlice = createSlice({
   },
 });
 
-export const selectMovieListState = (state) => state.movieList;
+const selectMovieListState = (state) => state.movieList;
 
 export const selectMovieList = (state) => selectMovieListState(state).movieList;
 
