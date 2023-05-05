@@ -11,7 +11,7 @@ import { StyledVotes } from "./styled";
 import { StyledStar } from "./styled";
 import star from "../../../Images/star.svg"
 
-export const Tile = ({ moviesList, genreList }) => {
+export const MovieTile = ({ moviesList, genreList }) => {
     const URL = "https://www.themoviedb.org/t/p/w440_and_h660_face/";
     const genres = [];
 
@@ -49,4 +49,4 @@ export const Tile = ({ moviesList, genreList }) => {
     )
 }
 
-export default Tile;
+export default MovieTile;

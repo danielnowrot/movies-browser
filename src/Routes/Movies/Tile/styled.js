@@ -27,6 +27,7 @@ export const StyledMovieLink = styled(Link)`
 
 export const StyledImg = styled.img`
     width: 100%;
+    border-radius: 5px;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         width: 114px;

@@ -10,7 +10,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import { searchQueryParamName } from "../../features/useQueryParameter";
 import { useEffect } from "react";
 import { axiosSearchParamsMovie, selectSearchParamsMovieList } from "../../features/searchParams/searchParamsSlice";
-import Tile from "./Tile";
+import MovieTile from "./Tile";
 
 const Movies = () => {
     const dispatch = useDispatch();
@@ -41,7 +41,7 @@ const Movies = () => {
                     <StyledTitle>
                         Popular movies
                     </StyledTitle>
-                    <Tile moviesList={moviesList} genreList={genreList} />
+                    <MovieTile moviesList={moviesList} genreList={genreList} />
                 </StyledMovies>
                 <Outlet />
             </>
