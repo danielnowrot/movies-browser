@@ -1,16 +1,9 @@
-import { StyledContainer, StyledMovieLink } from "./styled";
-import { StyledImg } from "./styled";
-import { StyledDetails } from "./styled";
-import { StyledName } from "./styled";
-import { StyledYear } from "./styled";
-import { StyledGenres } from "./styled";
-import { StyledGenre } from "./styled";
-import { StyledRate } from "./styled";
-import { StyledAvarage } from "./styled";
-import { StyledVotes } from "./styled";
-import { StyledStar } from "./styled";
+import { StyledContainer, StyledMovieLink, StyledImg,
+    StyledDetails, StyledName, StyledYear, StyledGenres,
+    StyledGenre, StyledRate, StyledAvarage, StyledVotes,
+    StyledStar } from "./styled";
 import star from "../../../Images/star.svg"
-import { Test } from "./styled";
+import noPicture from "../../../Images/noPicture.png";
 
 export const MovieTile = ({ moviesList, genreList }) => {
     const URL = "https://www.themoviedb.org/t/p/w440_and_h660_face/";
@@ -20,7 +13,7 @@ export const MovieTile = ({ moviesList, genreList }) => {
         moviesList.map(movie => {
             return (
                 <StyledMovieLink key={movie.id} to={`${movie.id}`}>
-                    <StyledImg src={`${URL}${movie.poster_path}`} />
+                    <StyledImg src={movie.poster_path ? `${URL}${movie.poster_path}` : noPicture} />
                     <StyledContainer>
                         <StyledDetails>
                             <StyledName>

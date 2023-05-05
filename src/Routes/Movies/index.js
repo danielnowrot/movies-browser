@@ -12,28 +12,38 @@ import { useEffect } from "react";
 import { axiosSearchParamsMovie, selectSearchParamsMovieList } from "../../features/searchParams/searchParamsSlice";
 import MovieTile from "./Tile";
 
-const Movies = () => {
-    const dispatch = useDispatch();
-    const location = useLocation();
+const getSearchMovie = (fetchMoviesSearch, loadingMoviesSearch, fetchMovieGenre, loadingGeners) => {
+    if (loadingMoviesSearch === "success" && loadingGeners === "success") {
+        const moviesList = fetchMoviesSearch.results || "";
+        const genreList = fetchMovieGenre.genres;
 
-    const fetchData = useSelector(selectMovieList);
-    const fetchGenre = useSelector(selectGenreList);
-    const fetchMoviesSearch = useSelector(selectSearchParamsMovieList);
-    const loadingMoviesSearch = useSelector(selectMovieListStatus);
-    const loadingGeners = useSelector(selectGenreListStatus);
-    const loadingMovies = (useSelector(selectMovieListStatus));
+        return (
+            <>
+                <StyledMovies>
+                    <StyledTitle>
+                        
+                    </StyledTitle>
+                    <MovieTile moviesList={moviesList} genreList={genreList} />
+                </StyledMovies>
+                <Outlet />
+            </>
+        )
+    }
+    else {
+        return (
+            loadingMoviesSearch === "loading" || loadingGeners === "loading" ?
+                <Loading /> :
+                loadingMoviesSearch === "error" || loadingGeners === "error" ?
+                    <Error /> :
+                    null
+        )
+    }
+}
 
-    const searchParams = (new URLSearchParams(location.search)).get(searchQueryParamName);
-    useEffect(() => {
-        dispatch(axiosSearchParamsMovie(searchParams))
-
-    }, [searchParams])
-
+const getPopularMovies = (fetchMovieData, fetchMovieGenre, loadingMovies, loadingGeners) => {
     if (loadingMovies === "success" && loadingGeners === "success") {
-        const searchList = fetchMoviesSearch !== null ? fetchMoviesSearch.results : null;
-
-        const moviesList = fetchData.results;
-        const genreList = fetchGenre.genres;
+        const moviesList = fetchMovieData.results;
+        const genreList = fetchMovieGenre.genres;
 
         return (
             <>
@@ -56,6 +66,30 @@ const Movies = () => {
                     null
         )
     }
+}
+
+const Movies = () => {
+    const dispatch = useDispatch();
+    const location = useLocation();
+
+    const fetchMovieData = useSelector(selectMovieList);
+    const fetchMovieGenre = useSelector(selectGenreList);
+    const fetchMoviesSearch = useSelector(selectSearchParamsMovieList);
+
+    const loadingMoviesSearch = useSelector(selectMovieListStatus);
+    const loadingGeners = useSelector(selectGenreListStatus);
+    const loadingMovies = (useSelector(selectMovieListStatus));
+
+    const searchParams = (new URLSearchParams(location.search)).get(searchQueryParamName);
+
+    useEffect(() => {
+        dispatch(axiosSearchParamsMovie(searchParams))
+
+    }, [searchParams])
+
+    return searchParams === null ? getPopularMovies(fetchMovieData, fetchMovieGenre, loadingMovies, loadingGeners) : 
+        getSearchMovie(fetchMoviesSearch, loadingMoviesSearch, fetchMovieGenre, loadingGeners);
+
 };
 
 export default Movies;
