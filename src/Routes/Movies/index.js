@@ -11,17 +11,20 @@ import { searchQueryParamName } from "../../features/useQueryParameter";
 import { useEffect } from "react";
 import { axiosSearchParamsMovie, selectSearchParamsMovieList } from "../../features/searchParams/searchParamsSlice";
 import MovieTile from "./Tile";
+import { NoResults } from "../../core/status/NoResults";
 
-const getSearchMovie = (fetchMoviesSearch, loadingMoviesSearch, fetchMovieGenre, loadingGeners) => {
-    if (loadingMoviesSearch === "success" && loadingGeners === "success") {
-        const moviesList = fetchMoviesSearch.results || "";
+const getSearchMovie = (fetchMoviesSearch, loadingMoviesSearch, fetchMovieGenre, loadingGeners, searchParams) => {
+    if (loadingMoviesSearch === "success" && loadingGeners === "success" && fetchMoviesSearch !== null) {
+        const moviesList = fetchMoviesSearch.results;
         const genreList = fetchMovieGenre.genres;
-
+        if (moviesList.length === 0) {
+            return <NoResults query={searchParams}/>
+        }
         return (
             <>
                 <StyledMovies>
                     <StyledTitle>
-                        
+                        Search results for "{searchParams}" ({moviesList.length})
                     </StyledTitle>
                     <MovieTile moviesList={moviesList} genreList={genreList} />
                 </StyledMovies>
@@ -29,15 +32,16 @@ const getSearchMovie = (fetchMoviesSearch, loadingMoviesSearch, fetchMovieGenre,
             </>
         )
     }
-    else {
-        return (
-            loadingMoviesSearch === "loading" || loadingGeners === "loading" ?
-                <Loading /> :
-                loadingMoviesSearch === "error" || loadingGeners === "error" ?
-                    <Error /> :
-                    null
-        )
-    }
+
+    return (
+        loadingMoviesSearch === "loading" || loadingGeners === "loading" ?
+            <Loading /> :
+            loadingMoviesSearch === "error" || loadingGeners === "error" ?
+                <Error /> :
+                null
+    )
+
+
 }
 
 const getPopularMovies = (fetchMovieData, fetchMovieGenre, loadingMovies, loadingGeners) => {
@@ -87,8 +91,8 @@ const Movies = () => {
 
     }, [searchParams])
 
-    return searchParams === null ? getPopularMovies(fetchMovieData, fetchMovieGenre, loadingMovies, loadingGeners) : 
-        getSearchMovie(fetchMoviesSearch, loadingMoviesSearch, fetchMovieGenre, loadingGeners);
+    return searchParams === null ? getPopularMovies(fetchMovieData, fetchMovieGenre, loadingMovies, loadingGeners) :
+        getSearchMovie(fetchMoviesSearch, loadingMoviesSearch, fetchMovieGenre, loadingGeners, searchParams);
 
 };
 
