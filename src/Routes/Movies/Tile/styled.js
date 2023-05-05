@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const StyledMovieLink = styled(Link)`
-    color: ${({theme}) => theme.colors.woodsmoke};
+    color: ${({ theme }) => theme.colors.woodsmoke};
     text-decoration: none;
     display: flex;
     max-width: ${({ theme }) => theme.breakpoints.tilesMax}px;
@@ -35,11 +35,20 @@ export const StyledImg = styled.img`
     }
 `;
 
+export const StyledContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+
+     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+        justify-content: flex-start;
+    }
+`
+
 export const StyledDetails = styled.div`
     display: flex;
-    height: 100%;
     flex-direction: column;
-    justify-content: flex-start;
 `
 
 export const StyledName = styled.div`
@@ -98,8 +107,8 @@ export const StyledGenre = styled.div`
 
 export const StyledRate = styled.div`
     display: flex;
-    align-items: center;
     gap: 12px;
+
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
         gap: 8px;
