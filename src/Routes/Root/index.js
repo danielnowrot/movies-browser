@@ -16,7 +16,7 @@ const Root = () => {
     const submit = useSubmit();
     const navigate = useNavigate();
 
-    const searchMovie = (new URLSearchParams(location.search)).get(searchQueryParamName);
+    const searchMovie = (new URLSearchParams(location.search)).get(searchQueryParamName) || null;
 
     const onInputChange = ({ currentTarget }) => {
         if (currentTarget.value.trim() === "") {

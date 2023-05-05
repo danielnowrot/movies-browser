@@ -8,9 +8,9 @@ import {
 
 function* axiosMovieDetailsHandler() {
   try {
-    yield delay(2000);
+    yield delay(1000);
     const movieDetails = yield call(getMovieDetails);
-    console.log(movieDetails);
+    // console.log(movieDetails);
     yield put(axiosMovieDetailsSuccess(movieDetails));
   } catch (error) {
     yield put(axiosMovieDetailsError());
