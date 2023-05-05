@@ -6,17 +6,19 @@ import {
 } from "./styled";
 import star from "../../Images/star.svg";
 import { useSelector } from "react-redux";
-import { selectMovieList, selectMovieListState } from "../../features/moveList/movieListSlice";
-import { selectGenreList, selectGenreListState } from "../../features/genreList/genreListSlice";
+import { selectMovieList, selectMovieListStatus } from "../../features/moveList/movieListSlice";
+import { selectGenreList, selectGenreListStatus } from "../../features/genreList/genreListSlice";
+import { Error } from "../../core/status/Error";
+import { Loading } from "../../core/status/Loading";
 
 const Movies = () => {
     const fetchData = useSelector(selectMovieList);
     const fetchGenre = useSelector(selectGenreList);
-    const loadingGeners = useSelector(selectGenreListState);
-    const loadingMovies = (useSelector(selectMovieListState));
+    const loadingGeners = useSelector(selectGenreListStatus);
+    const loadingMovies = (useSelector(selectMovieListStatus));
     const URL = "https://www.themoviedb.org/t/p/w440_and_h660_face/";
 
-    if (loadingMovies.status === "success" && loadingGeners.status === "success") {
+    if (loadingMovies === "success" && loadingGeners === "success") {
         const moviesList = fetchData.results;
         const genreList = fetchGenre.genres;
         const genres = [];
@@ -29,7 +31,7 @@ const Movies = () => {
                     </StyledTitle>
                     {moviesList.map(movie => {
                         return (
-                            <StyledMovieLink key={movie.id} to={`${movie.id}`}>     
+                            <StyledMovieLink key={movie.id} to={`${movie.id}`}>
                                 <StyledImg src={`${URL}${movie.poster_path}`} />
                                 <StyledDetails>
                                     <StyledName>
@@ -60,6 +62,12 @@ const Movies = () => {
                 </StyledMovies>
             </>
         )
+    }
+    if (loadingMovies === "error" || loadingGeners === "error") {
+        return <Error />
+    }
+    if (loadingMovies === "loading" || loadingGeners === "loading") {
+        return <Loading />
     }
 };
 
