@@ -98,6 +98,7 @@ export const StyledNavLink = styled(NavLink)`
 
 export const StyledSearch = styled.div`
     position: relative;
+    max-width: 100%;
 `;
 
 export const StyledInput = styled.input`
@@ -109,7 +110,7 @@ export const StyledInput = styled.input`
     padding-right: 16px;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.topBar.mediaSizeS}px) {
-    width: 288px;
+    max-width: 100%;
     padding-left: 40px;
     }
 `;

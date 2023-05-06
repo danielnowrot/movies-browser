@@ -8,7 +8,7 @@ import {
 
 function* axiosPersonListHandler() {
   try {
-    yield delay(2000);
+    yield delay(1000);
     const personList = yield call(getPopularPersonAPI);
     console.log(personList);
     yield put(axiosPersonListSuccess(personList));

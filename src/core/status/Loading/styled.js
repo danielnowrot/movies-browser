@@ -32,7 +32,8 @@ export const Loader = styled.div`
   align-self: center;
   width: 91px;
   height: 91px;
-  margin: 40px;
+  /* margin: 40px; */
+  margin: auto;
   border: 12px solid ${({ theme }) => theme.colors.snuff};
   border-top: 12px solid ${({ theme }) => theme.colors.black};
   border-radius: 50%;

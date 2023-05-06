@@ -1,27 +1,53 @@
 import {
-    StyledTitle, StyledMovies, StyledMovieLink, StyledImg,
-    StyledName, StyledYear, StyledGenres, StyledRate,
-    StyledStar, StyledAvarage, StyledVotes, StyledGenre,
-    StyledDetails
+    StyledTitle, StyledMovies
 } from "./styled";
-import star from "../../Images/star.svg";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectMovieList, selectMovieListStatus } from "../../features/moveList/movieListSlice";
 import { selectGenreList, selectGenreListStatus } from "../../features/genreList/genreListSlice";
 import { Error } from "../../core/status/Error";
 import { Loading } from "../../core/status/Loading";
+import { Outlet, useLocation } from "react-router-dom";
+import { searchQueryParamName } from "../../features/useQueryParameter";
+import { useEffect } from "react";
+import { axiosSearchParamsMovie, selectSearchParamsMovieList } from "../../features/searchParams/searchParamsSlice";
+import MovieTile from "./Tile";
+import { NoResults } from "../../core/status/NoResults";
 
-const Movies = () => {
-    const fetchData = useSelector(selectMovieList);
-    const fetchGenre = useSelector(selectGenreList);
-    const loadingGeners = useSelector(selectGenreListStatus);
-    const loadingMovies = (useSelector(selectMovieListStatus));
-    const URL = "https://www.themoviedb.org/t/p/w440_and_h660_face/";
+const getSearchMovie = (fetchMoviesSearch, loadingMoviesSearch, fetchMovieGenre, loadingGeners, searchParams) => {
+    if (loadingMoviesSearch === "success" && loadingGeners === "success" && fetchMoviesSearch !== null) {
+        const moviesList = fetchMoviesSearch.results;
+        const genreList = fetchMovieGenre.genres;
+        if (moviesList.length === 0) {
+            return <NoResults query={searchParams}/>
+        }
+        return (
+            <>
+                <StyledMovies>
+                    <StyledTitle>
+                        Search results for "{searchParams}" ({moviesList.length})
+                    </StyledTitle>
+                    <MovieTile moviesList={moviesList} genreList={genreList} />
+                </StyledMovies>
+                <Outlet />
+            </>
+        )
+    }
 
+    return (
+        loadingMoviesSearch === "loading" || loadingGeners === "loading" ?
+            <Loading /> :
+            loadingMoviesSearch === "error" || loadingGeners === "error" ?
+                <Error /> :
+                null
+    )
+
+
+}
+
+const getPopularMovies = (fetchMovieData, fetchMovieGenre, loadingMovies, loadingGeners) => {
     if (loadingMovies === "success" && loadingGeners === "success") {
-        const moviesList = fetchData.results;
-        const genreList = fetchGenre.genres;
-        const genres = [];
+        const moviesList = fetchMovieData.results;
+        const genreList = fetchMovieGenre.genres;
 
         return (
             <>
@@ -29,46 +55,45 @@ const Movies = () => {
                     <StyledTitle>
                         Popular movies
                     </StyledTitle>
-                    {moviesList.map(movie => {
-                        return (
-                            <StyledMovieLink key={movie.id} to={`${movie.id}`}>
-                                <StyledImg src={`${URL}${movie.poster_path}`} />
-                                <StyledDetails>
-                                    <StyledName>
-                                        {movie.original_title}
-                                    </StyledName>
-                                    <StyledYear>
-                                        {(movie.release_date).slice(0, 4)}
-                                    </StyledYear>
-                                    <StyledGenres>
-                                        {(movie.genre_ids).forEach((element, index) => {
-                                            genres[index] = (genreList.filter(({ id }) => id === element)).map(({ name }) => name)
-                                        })}
-                                        {genres.map((list, index) => <StyledGenre key={index}>{list}</StyledGenre>)}
-                                    </StyledGenres>
-                                    <StyledRate>
-                                        <StyledStar src={star} />
-                                        <StyledAvarage>
-                                            {movie.vote_average}
-                                        </StyledAvarage>
-                                        <StyledVotes>
-                                            {movie.vote_count} {movie.vote_count !== 1 ? "votes" : "vote"}
-                                        </StyledVotes>
-                                    </StyledRate>
-                                </StyledDetails>
-                            </StyledMovieLink>
-                        )
-                    })}
+                    <MovieTile moviesList={moviesList} genreList={genreList} />
                 </StyledMovies>
+                <Outlet />
             </>
         )
     }
-    if (loadingMovies === "error" || loadingGeners === "error") {
-        return <Error />
+    else {
+        return (
+            loadingMovies === "loading" || loadingGeners === "loading" ?
+                <Loading /> :
+                loadingMovies === "error" || loadingGeners === "error" ?
+                    <Error /> :
+                    null
+        )
     }
-    if (loadingMovies === "loading" || loadingGeners === "loading") {
-        return <Loading />
-    }
+}
+
+const Movies = () => {
+    const dispatch = useDispatch();
+    const location = useLocation();
+
+    const fetchMovieData = useSelector(selectMovieList);
+    const fetchMovieGenre = useSelector(selectGenreList);
+    const fetchMoviesSearch = useSelector(selectSearchParamsMovieList);
+
+    const loadingMoviesSearch = useSelector(selectMovieListStatus);
+    const loadingGeners = useSelector(selectGenreListStatus);
+    const loadingMovies = (useSelector(selectMovieListStatus));
+
+    const searchParams = (new URLSearchParams(location.search)).get(searchQueryParamName);
+
+    useEffect(() => {
+        dispatch(axiosSearchParamsMovie(searchParams))
+
+    }, [searchParams])
+
+    return searchParams === null ? getPopularMovies(fetchMovieData, fetchMovieGenre, loadingMovies, loadingGeners) :
+        getSearchMovie(fetchMoviesSearch, loadingMoviesSearch, fetchMovieGenre, loadingGeners, searchParams);
+
 };
 
 export default Movies;

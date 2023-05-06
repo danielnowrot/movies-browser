@@ -15,7 +15,7 @@ function* axiosPersonCreditsHandler({payload: page}) {
        `${base}/person/popular${key}${language}&page=${page}`;
 
   try {
-    yield delay(2000);
+    yield delay(1000);
     const personCredits = yield call(getPersonCredits, path );
     console.log(personCredits);
     yield put(axiosPersonCreditsSuccess(personCredits));

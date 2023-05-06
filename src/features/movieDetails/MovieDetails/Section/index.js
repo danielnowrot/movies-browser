@@ -10,7 +10,9 @@ import {
 import { SectionTitle } from "../../../../core/SectionTitle";
 import { ReactComponent as NoProfilePath } from "../../../../Images/NoProfilePath.svg";
 
-export const Section = ({ movieCredits, movieDetails }) => {
+
+export const Section = ({ movieCredits, title }) => {
+
   return (
     <Wrapper>
       <SectionTitle>Cast</SectionTitle>
