@@ -5,15 +5,17 @@ const movieListSlice = createSlice({
   initialState: {
     movieList: null,
     status: "initial",
+    moviePage: 1
   },
   reducers: {
-    axiosMovieList: () => ({
+    axiosMovieList: (_, { payload: moviePage}) => ({
       status: "loading",
       movieList: null,
+      moviePage
     }),
     axiosMovieListSuccess: (_, { payload: movieList }) => ({
       status: "success",
-      movieList,
+      movieList
     }),
     axiosMovieListError: () => ({
       status: "error",

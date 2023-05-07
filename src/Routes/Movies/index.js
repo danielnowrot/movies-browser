@@ -2,11 +2,11 @@ import {
     StyledTitle, StyledMovies
 } from "./styled";
 import { useDispatch, useSelector } from "react-redux";
-import { selectMovieList, selectMovieListStatus } from "../../features/moveList/movieListSlice";
+import { axiosMovieList, selectMovieList, selectMovieListStatus } from "../../features/moveList/movieListSlice";
 import { selectGenreList, selectGenreListStatus } from "../../features/genreList/genreListSlice";
 import { Error } from "../../core/status/Error";
 import { Loading } from "../../core/status/Loading";
-import { useLocation } from "react-router-dom";
+import { useLocation, useOutletContext } from "react-router-dom";
 import { searchQueryParamName } from "../../features/useQueryParameter";
 import { useEffect } from "react";
 import { axiosSearchParamsMovie, selectSearchParamsMovieList } from "../../features/searchParams/searchParamsSlice";
@@ -45,6 +45,7 @@ const getSearchMovie = (fetchMoviesSearch, loadingMoviesSearch, fetchMovieGenre,
 
 const getPopularMovies = (fetchMovieData, fetchMovieGenre, loadingMovies, loadingGeners) => {
     if (loadingMovies === "success" && loadingGeners === "success") {
+        console.log(fetchMovieData)
         const moviesList = fetchMovieData.results;
         const genreList = fetchMovieGenre.genres;
 
@@ -71,6 +72,8 @@ const getPopularMovies = (fetchMovieData, fetchMovieGenre, loadingMovies, loadin
 }
 
 const Movies = () => {
+    const getPage = useOutletContext();
+    
     const dispatch = useDispatch();
     const location = useLocation();
 
@@ -86,8 +89,11 @@ const Movies = () => {
 
     useEffect(() => {
         dispatch(axiosSearchParamsMovie(searchParams))
-
     }, [searchParams])
+
+    useEffect(() => {
+        dispatch(axiosMovieList(getPage))
+    },[getPage])
 
     return searchParams === null ? getPopularMovies(fetchMovieData, fetchMovieGenre, loadingMovies, loadingGeners) :
         getSearchMovie(fetchMoviesSearch, loadingMoviesSearch, fetchMovieGenre, loadingGeners, searchParams);
