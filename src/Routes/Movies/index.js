@@ -6,7 +6,7 @@ import { selectMovieList, selectMovieListStatus } from "../../features/moveList/
 import { selectGenreList, selectGenreListStatus } from "../../features/genreList/genreListSlice";
 import { Error } from "../../core/status/Error";
 import { Loading } from "../../core/status/Loading";
-import { Outlet, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { searchQueryParamName } from "../../features/useQueryParameter";
 import { useEffect } from "react";
 import { axiosSearchParamsMovie, selectSearchParamsMovieList } from "../../features/searchParams/searchParamsSlice";
@@ -18,7 +18,7 @@ const getSearchMovie = (fetchMoviesSearch, loadingMoviesSearch, fetchMovieGenre,
         const moviesList = fetchMoviesSearch.results;
         const genreList = fetchMovieGenre.genres;
         if (moviesList.length === 0) {
-            return <NoResults query={searchParams}/>
+            return <NoResults query={searchParams} />
         }
         return (
             <>
@@ -28,7 +28,6 @@ const getSearchMovie = (fetchMoviesSearch, loadingMoviesSearch, fetchMovieGenre,
                     </StyledTitle>
                     <MovieTile moviesList={moviesList} genreList={genreList} />
                 </StyledMovies>
-                <Outlet />
             </>
         )
     }
@@ -57,7 +56,6 @@ const getPopularMovies = (fetchMovieData, fetchMovieGenre, loadingMovies, loadin
                     </StyledTitle>
                     <MovieTile moviesList={moviesList} genreList={genreList} />
                 </StyledMovies>
-                <Outlet />
             </>
         )
     }
@@ -93,7 +91,6 @@ const Movies = () => {
 
     return searchParams === null ? getPopularMovies(fetchMovieData, fetchMovieGenre, loadingMovies, loadingGeners) :
         getSearchMovie(fetchMoviesSearch, loadingMoviesSearch, fetchMovieGenre, loadingGeners, searchParams);
-
 };
 
 export default Movies;

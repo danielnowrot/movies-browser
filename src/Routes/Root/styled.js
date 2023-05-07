@@ -141,3 +141,8 @@ export const StyledSection = styled.section`
     flex-direction: column;
     margin-bottom: 40px;
 `;
+
+export const StyledPages = styled.div`
+    text-align: center;
+    margin-bottom: 103px;
+`;

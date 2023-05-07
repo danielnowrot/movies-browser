@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import StyledGlobal from "./styled";
@@ -24,11 +24,11 @@ const router = createHashRouter([
     errorElement: <ErrorRootPage />,
     children: [
       {
-        path: "movies",
+        path: "movies/page/:pageId",
         element: <Movies />,
       },
       {
-        path: "movies/:idMovie",
+        path: "movies/page/:pageId/:idMovie",
         element: <div>Movie detail</div>
       },
       {
