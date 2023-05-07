@@ -12,6 +12,7 @@ function* axiosMovieListHandler() {
   try {
     yield delay(1000);
     const movieList = yield call(getPopularMovieAPI);
+    console.log(movieList)
     yield put(axiosMovieListSuccess(movieList));
   } catch (error) {
     yield put(axiosMovieListError());
