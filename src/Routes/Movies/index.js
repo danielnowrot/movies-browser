@@ -18,6 +18,7 @@ const getSearchMovie = (fetchMoviesSearch, loadingMoviesSearch, fetchMovieGenre,
     if (loadingMoviesSearch === "success" && loadingGeners === "success" && fetchMoviesSearch !== null) {
         const moviesList = fetchMoviesSearch.results;
         const genreList = fetchMovieGenre.genres;
+        console.log(fetchMoviesSearch)
         if (moviesList.length === 0) {
             return <NoResults query={searchParams} />
         }
