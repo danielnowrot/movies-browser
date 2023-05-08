@@ -30,7 +30,7 @@ const subPage = (getPage, navigate, query) => {
 const getPopularMoviesPages = (getPage, navigate, getTotal, query) => {
     let disabledFirst = false;
     let disabledLast = false
-
+    
     if (getPage < 2) {
         disabledFirst = true;
     }
