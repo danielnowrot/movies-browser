@@ -6,12 +6,13 @@ import { axiosMovieList, selectMovieList, selectMovieListStatus } from "../../fe
 import { selectGenreList, selectGenreListStatus } from "../../features/genreList/genreListSlice";
 import { Error } from "../../core/status/Error";
 import { Loading } from "../../core/status/Loading";
-import { useLocation, useOutletContext } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { searchQueryParamName } from "../../features/useQueryParameter";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { axiosSearchParamsMovie, selectSearchParamsMovieList } from "../../features/searchParams/searchParamsSlice";
 import MovieTile from "./Tile";
 import { NoResults } from "../../core/status/NoResults";
+import ArrowPages from "../../features/moveList/ArrowPages";
 
 const getSearchMovie = (fetchMoviesSearch, loadingMoviesSearch, fetchMovieGenre, loadingGeners, searchParams) => {
     if (loadingMoviesSearch === "success" && loadingGeners === "success" && fetchMoviesSearch !== null) {
@@ -39,16 +40,12 @@ const getSearchMovie = (fetchMoviesSearch, loadingMoviesSearch, fetchMovieGenre,
                 <Error /> :
                 null
     )
-
-
 }
 
-const getPopularMovies = (fetchMovieData, fetchMovieGenre, loadingMovies, loadingGeners) => {
+const getPopularMovies = (fetchMovieData, fetchMovieGenre, loadingMovies, loadingGeners, getPage) => {
     if (loadingMovies === "success" && loadingGeners === "success") {
-        console.log(fetchMovieData)
         const moviesList = fetchMovieData.results;
         const genreList = fetchMovieGenre.genres;
-
         return (
             <>
                 <StyledMovies>
@@ -57,6 +54,7 @@ const getPopularMovies = (fetchMovieData, fetchMovieGenre, loadingMovies, loadin
                     </StyledTitle>
                     <MovieTile moviesList={moviesList} genreList={genreList} />
                 </StyledMovies>
+                <ArrowPages getPage={getPage}/>
             </>
         )
     }
@@ -72,10 +70,17 @@ const getPopularMovies = (fetchMovieData, fetchMovieGenre, loadingMovies, loadin
 }
 
 const Movies = () => {
-    const getPage = useOutletContext();
-    
+    const [getPage, setGetPage] = useState(1)
+
     const dispatch = useDispatch();
     const location = useLocation();
+    const splitLocation = location.pathname.split('/');
+
+    const URLPage = splitLocation[3];
+    
+    useEffect(() => {
+        setGetPage(previousPage => previousPage = URLPage);
+    }, [URLPage])
 
     const fetchMovieData = useSelector(selectMovieList);
     const fetchMovieGenre = useSelector(selectGenreList);
@@ -89,14 +94,15 @@ const Movies = () => {
 
     useEffect(() => {
         dispatch(axiosSearchParamsMovie(searchParams))
-    }, [searchParams])
+    }, [searchParams, dispatch])
 
     useEffect(() => {
         dispatch(axiosMovieList(getPage))
-    },[getPage])
+    }, [getPage, dispatch])
 
-    return searchParams === null ? getPopularMovies(fetchMovieData, fetchMovieGenre, loadingMovies, loadingGeners) :
-        getSearchMovie(fetchMoviesSearch, loadingMoviesSearch, fetchMovieGenre, loadingGeners, searchParams);
+    return searchParams === null ?
+        getPopularMovies(fetchMovieData, fetchMovieGenre, loadingMovies, loadingGeners, getPage) :
+        getSearchMovie(fetchMoviesSearch, loadingMoviesSearch, fetchMovieGenre, loadingGeners, searchParams, );
 };
 
 export default Movies;

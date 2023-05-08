@@ -8,10 +8,10 @@ import {
 
 import { axiosGenreList, axiosGenreListSuccess, axiosGenreListError } from "../genreList/genreListSlice";
 
-function* axiosMovieListHandler({payload: movieId}) {
+function* axiosMovieListHandler({payload: getPage}) {
   try {
     yield delay(1000);
-    const movieList = yield call(getPopularMovieAPI, movieId);
+    const movieList = yield call(getPopularMovieAPI, getPage);
     yield put(axiosMovieListSuccess(movieList));
   } catch (error) {
     yield put(axiosMovieListError());

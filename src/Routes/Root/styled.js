@@ -139,23 +139,4 @@ export const StyledSection = styled.section`
     margin-top: 56px;
     display: flex;
     flex-direction: column;
-    margin-bottom: 40px;
 `;
-
-export const StyledPages = styled.div`
-    display: flex;
-    gap:12px;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 103px;
-`;
-
-export const StyledButton = styled.button`
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    background-color: #D6E4FF;
-    padding: 8px 16px;
-    border-radius: 5px;
-    border: none;
-`
