@@ -17,6 +17,10 @@ const Root = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        navigate(`/movies/page/1`)
+    })
+
     const searchMovie = (new URLSearchParams(location.search)).get(searchQueryParamName) || null;
 
     const onInputChange = ({ currentTarget }) => {

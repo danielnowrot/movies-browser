@@ -21,6 +21,7 @@ const router = createHashRouter([
   {
     path: "/",
     element: <App />,
+
     errorElement: <ErrorRootPage />,
     children: [
       {
