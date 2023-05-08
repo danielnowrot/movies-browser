@@ -19,7 +19,7 @@ const Root = () => {
 
     useEffect(() => {
         navigate(`/movies/page/1`)
-    })
+    },[])
 
     const searchMovie = (new URLSearchParams(location.search)).get(searchQueryParamName) || null;
 
