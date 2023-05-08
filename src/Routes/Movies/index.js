@@ -12,9 +12,9 @@ import { useEffect, useState } from "react";
 import { axiosSearchParamsMovie, selectSearchParamsMovieList } from "../../features/searchParams/searchParamsSlice";
 import MovieTile from "./Tile";
 import { NoResults } from "../../core/status/NoResults";
-import ArrowPages from "../../features/moveList/ArrowPages";
+import ArrowsPages from "../../features/moveList/ArrowsPages";
 
-const getSearchMovie = (fetchMoviesSearch, loadingMoviesSearch, fetchMovieGenre, loadingGeners, searchParams) => {
+const getSearchMovie = (fetchMoviesSearch, loadingMoviesSearch, fetchMovieGenre, loadingGeners, searchParams, getPage) => {
     if (loadingMoviesSearch === "success" && loadingGeners === "success" && fetchMoviesSearch !== null) {
         const moviesList = fetchMoviesSearch.results;
         const genreList = fetchMovieGenre.genres;
@@ -29,6 +29,7 @@ const getSearchMovie = (fetchMoviesSearch, loadingMoviesSearch, fetchMovieGenre,
                     </StyledTitle>
                     <MovieTile moviesList={moviesList} genreList={genreList} />
                 </StyledMovies>
+                <ArrowsPages getPage={getPage} getTotal={fetchMoviesSearch.total_pages}/>
             </>
         )
     }
@@ -54,7 +55,7 @@ const getPopularMovies = (fetchMovieData, fetchMovieGenre, loadingMovies, loadin
                     </StyledTitle>
                     <MovieTile moviesList={moviesList} genreList={genreList} />
                 </StyledMovies>
-                <ArrowPages getPage={getPage}/>
+                <ArrowsPages getPage={getPage}/>
             </>
         )
     }
@@ -93,8 +94,8 @@ const Movies = () => {
     const searchParams = (new URLSearchParams(location.search)).get(searchQueryParamName);
 
     useEffect(() => {
-        dispatch(axiosSearchParamsMovie(searchParams))
-    }, [searchParams, dispatch])
+        dispatch(axiosSearchParamsMovie([searchParams, getPage]))
+    }, [searchParams, getPage, dispatch])
 
     useEffect(() => {
         dispatch(axiosMovieList(getPage))
@@ -102,7 +103,7 @@ const Movies = () => {
 
     return searchParams === null ?
         getPopularMovies(fetchMovieData, fetchMovieGenre, loadingMovies, loadingGeners, getPage) :
-        getSearchMovie(fetchMoviesSearch, loadingMoviesSearch, fetchMovieGenre, loadingGeners, searchParams, );
+        getSearchMovie(fetchMoviesSearch, loadingMoviesSearch, fetchMovieGenre, loadingGeners, searchParams, getPage);
 };
 
 export default Movies;

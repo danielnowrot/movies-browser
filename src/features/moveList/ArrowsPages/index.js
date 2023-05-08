@@ -19,15 +19,15 @@ const subPage = (getPage, navigate) => {
     navigate(`/movies/page/${(+getPage - 1)}`)
 }
 
-const getPopularMoviesPages = (getPage, navigate) => {
+const getPopularMoviesPages = (getPage, navigate, getTotal) => {
     let disabledFirst = false;
     let disabledLast = false
 
-    if (getPage < 2) {
+    if (getPage < 2 || getPage === getTotal) {
         disabledFirst = true;
     }
 
-    if (getPage > 499) {
+    if (getPage > 499 || getPage === getTotal) {
         disabledLast = true;
     }
 
@@ -36,17 +36,16 @@ const getPopularMoviesPages = (getPage, navigate) => {
             <StyledButton disabled={disabledFirst} onClick={() => firstPage(navigate)}> <img src={leftArrow} alt="arrow" /> First</StyledButton>
             <StyledButton disabled={disabledFirst} onClick={() => subPage(getPage, navigate)}> <img src={leftArrow} alt="arrow" /> Previous</StyledButton>
             {/* Due to talk TMDB, error occure over > 500 pages so cant load above that */}
-            <div>Page {getPage} of 500</div>
+            <div>Page {getPage} of {getTotal ? getTotal : 500}</div>
             <StyledButton disabled={disabledLast} onClick={() => addPage(getPage, navigate)}>Next <img src={rightArrow} alt="arrow" /> </StyledButton>
             <StyledButton disabled={disabledLast} onClick={() => lastPage(navigate)}>Last <img src={rightArrow} alt="arrow" /> </StyledButton>
         </StyledPages>
     )
 }
 
-export const ArrowPages = ({getPage}) => {
+export const ArrowsPages = ({getPage, getTotal}) => {
     const navigate = useNavigate();
-
-    return (getPopularMoviesPages(getPage, navigate))
+    return (getPopularMoviesPages(getPage, navigate, getTotal))
 }
 
-export default ArrowPages;
+export default ArrowsPages;
