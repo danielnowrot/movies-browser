@@ -19,7 +19,7 @@ const Root = () => {
 
     useEffect(() => {
         navigate(`/movies/page/1`)
-    },[])
+    })
 
     const searchMovie = (new URLSearchParams(location.search)).get(searchQueryParamName) || null;
 
@@ -55,9 +55,11 @@ const Root = () => {
                     </StyledNav>
                 </StyledBar>
                 <StyledSearch>
-                    <Form autoComplete="off" action={location.pathname === "/movies/page/1" ? "/movies/page/1" : location.pathname === "/people" ? "/people" : ""}>
+                    <Form autoComplete="off" action={location.pathname === `/movies/page/${location.pathname.split('/')[3]}` ?
+                        "/movies/page/1" : location.pathname === "/people" ? "/people"
+                            : ""}>
                         <StyledInput
-                            placeholder={location.pathname === "/movies" ? "Search for movies..." : location.pathname === "/people" ? "Search for people..." : ""}
+                            placeholder={location.pathname === "/movies/page/1" ? "Search for movies..." : location.pathname === "/people" ? "Search for people..." : ""}
                             name={searchQueryParamName}
                             type="search"
                             disabled={location.pathname === "/" ? true : false}
