@@ -9,7 +9,7 @@ export const StyledTitle = styled.div`
     white-space: nowrap;
     margin-bottom: -24px;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
         font-size: 18px;
     }
 `;
@@ -22,7 +22,7 @@ export const StyledMovies = styled.div`
     justify-content: center;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMax}px) {
-        grid-template-columns: repeat(auto-fit, 288px);
+        grid-template-columns: repeat(auto-fit, minmax(288px, max-content));
         gap: 16px;
     }
 `;

@@ -143,4 +143,8 @@ export const StyledSection = styled.section`
     margin-top: 56px;
     display: flex;
     flex-direction: column;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+    margin-top: 24px;
+    }
 `;
