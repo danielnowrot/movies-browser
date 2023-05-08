@@ -14,7 +14,7 @@ import MovieTile from "./Tile";
 import { NoResults } from "../../core/status/NoResults";
 import ArrowsPages from "../../features/moveList/ArrowsPages";
 
-const getSearchMovie = (fetchMoviesSearch, loadingMoviesSearch, fetchMovieGenre, loadingGeners, searchParams, getPage) => {
+const getSearchMovie = (fetchMoviesSearch, loadingMoviesSearch, fetchMovieGenre, loadingGeners, searchParams, getPage, URLPage) => {
     if (loadingMoviesSearch === "success" && loadingGeners === "success" && fetchMoviesSearch !== null) {
         const moviesList = fetchMoviesSearch.results;
         const genreList = fetchMovieGenre.genres;
@@ -29,7 +29,7 @@ const getSearchMovie = (fetchMoviesSearch, loadingMoviesSearch, fetchMovieGenre,
                     </StyledTitle>
                     <MovieTile moviesList={moviesList} genreList={genreList} />
                 </StyledMovies>
-                <ArrowsPages getPage={getPage} getTotal={fetchMoviesSearch.total_pages}/>
+                <ArrowsPages getPage={getPage} getTotal={fetchMoviesSearch.total_pages} query={searchParams}/>
             </>
         )
     }

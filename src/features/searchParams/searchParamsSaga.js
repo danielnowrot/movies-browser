@@ -9,7 +9,6 @@ import {
 function* axiosSearchParamsMovieHandler({payload: movieId}) {
   try {
     const getMovie = yield call(getSearchParamsApi, movieId);
-    console.log(getMovie)
     yield put(axiosSearchParamsMovieSuccess(getMovie));
   } catch (error) {
     yield put(axiosSearchParamsMovieError());
