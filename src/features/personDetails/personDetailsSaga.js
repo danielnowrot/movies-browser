@@ -8,7 +8,7 @@ import {
 
 function* axiosPersonDetailsHandler() {
   try {
-    yield delay(2000);
+    yield delay(1000);
     const personDetails = yield call(getPersonDetails);
     console.log(personDetails);
     yield put(axiosPersonDetailsSuccess(personDetails));

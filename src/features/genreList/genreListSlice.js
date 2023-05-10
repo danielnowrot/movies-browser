@@ -22,7 +22,7 @@ const genreListSlice = createSlice({
   },
 });
 
-export const selectGenreListState = (state) => state.genreList;
+const selectGenreListState = (state) => state.genreList;
 
 export const selectGenreList = (state) => selectGenreListState(state).genreList;
 

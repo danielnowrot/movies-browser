@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import StyledGlobal from "./styled";
@@ -6,6 +6,7 @@ import theme from "./theme";
 import App from "./App";
 import Movies from "./Routes/Movies/index";
 import People from "./Routes/People/index";
+import ErrorRootPage from "./Routes/Error/index";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { MovieList } from "./features/moveList/MovieList";
@@ -20,14 +21,23 @@ const router = createHashRouter([
   {
     path: "/",
     element: <App />,
+
+    errorElement: <ErrorRootPage />,
     children: [
       {
-        path: "movies",
+        path: "movies/page/:pageId",
         element: <Movies />,
+      },
+      {
+        path: "movies/page/:pageId/:idMovie",
+        element: <div>Movie detail</div>
       },
       {
         path: "people",
         element: <People />,
+      }, {
+        path: "people/:idPerson",
+        element: <div>Person detail</div>
       },
     ],
   },

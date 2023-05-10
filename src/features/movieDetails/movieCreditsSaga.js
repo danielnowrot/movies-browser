@@ -8,9 +8,9 @@ import {
 
 function* axiosMovieCreditsHandler() {
   try {
-    yield delay(2000);
+    yield delay(1000);
     const movieCredits = yield call(getMovieCredits);
-    console.log(movieCredits);
+    // console.log(movieCredits);
     yield put(axiosMovieCreditsSuccess(movieCredits));
   } catch (error) {
     yield put(axiosMovieCreditsError());
