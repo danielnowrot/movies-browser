@@ -11,17 +11,16 @@ import { SectionTitle } from "../../../../core/SectionTitle";
 import { ReactComponent as NoProfilePath } from "../../../../Images/NoProfilePath.svg";
 
 export const Section = ({ movieCredits, movieDetails }) => {
+  const pathPhoto = "https://image.tmdb.org/t/p/w185/";
   return (
     <Wrapper>
-      <SectionTitle>Cast</SectionTitle>
+      <SectionTitle>Crew</SectionTitle>
       <List>
         {Object.values(movieCredits.cast || {}).map(
-          ({ id, profile_path, name, character }) => (
-            <Tile key={id}>
+          ({ index, profile_path, name, character }) => (
+            <Tile key={index}>
               {profile_path ? (
-                <Photo
-                  src={`https://image.tmdb.org/t/p/w185/${profile_path}`}
-                />
+                <Photo src={`${pathPhoto}${profile_path}`} />
               ) : (
                 <NoPathWrapper>
                   <NoProfilePath />
@@ -38,12 +37,10 @@ export const Section = ({ movieCredits, movieDetails }) => {
       <SectionTitle>Crew</SectionTitle>
       <List>
         {Object.values(movieCredits.crew || {}).map(
-          ({ id, profile_path, name, department }) => (
-            <Tile key={id}>
+          ({ index, profile_path, name, department }) => (
+            <Tile key={index}>
               {profile_path ? (
-                <Photo
-                  src={`https://image.tmdb.org/t/p/w185/${profile_path}`}
-                />
+                <Photo src={`${pathPhoto}${profile_path}`} />
               ) : (
                 <NoPathWrapper>
                   <NoProfilePath />
@@ -56,6 +53,26 @@ export const Section = ({ movieCredits, movieDetails }) => {
           )
         )}
       </List>
+
+      {/* <SectionTitle>{title}</SectionTitle>
+      <List>
+        {Object.values(objectValues || {}).map(
+          ({ index, profile_path, name }, characterOrDepartment) => (
+            <Tile key={index}>
+              {profile_path ? (
+                <Photo src={`${pathPhoto}${profile_path}`} />
+              ) : (
+                <NoPathWrapper>
+                  <NoProfilePath />
+                </NoPathWrapper>
+              )}
+
+              <Name>{name}</Name>
+              <Character>{characterOrDepartment}</Character>
+            </Tile>
+          )
+        )}
+      </List> */}
     </Wrapper>
   );
 };

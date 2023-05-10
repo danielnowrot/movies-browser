@@ -20,11 +20,7 @@ export const MovieDetails = () => {
 
   return (
     <Wrapper>
-      <Section
-        movieCredits={movieCredits}
-        movieDetails={movieDetails}
-        title="Cast"
-      />
+      <Section movieCredits={movieCredits} movieDetails={movieDetails} />
     </Wrapper>
   );
 };
