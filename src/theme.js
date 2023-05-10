@@ -15,7 +15,7 @@ const theme = {
     },
     breakpoints: {
         mobileMax: 767,
-        tilesMax: 324,
+        mobileMin: 471,
         tilesMin: 256,
         topBar: {
             thick: 94,
@@ -23,7 +23,6 @@ const theme = {
             mediaSizeS: 470,
             mediaSizeL: 935
         },
-        mobileMin: 471,
     }
 };
 

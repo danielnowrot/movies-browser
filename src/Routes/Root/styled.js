@@ -99,6 +99,10 @@ export const StyledNavLink = styled(NavLink)`
 export const StyledSearch = styled.div`
     position: relative;
     max-width: 100%;
+    
+    @media (max-width: ${({ theme }) => theme.breakpoints.topBar.mediaSizeL}px) {
+    width: 100%;
+    }
 `;
 
 export const StyledInput = styled.input`
@@ -109,8 +113,8 @@ export const StyledInput = styled.input`
     padding-left: 64px;
     padding-right: 16px;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.topBar.mediaSizeS}px) {
-    max-width: 100%;
+    @media (max-width: ${({ theme }) => theme.breakpoints.topBar.mediaSizeL}px) {
+    width: 100%;
     padding-left: 40px;
     }
 `;
@@ -139,4 +143,8 @@ export const StyledSection = styled.section`
     margin-top: 56px;
     display: flex;
     flex-direction: column;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
+    margin-top: 24px;
+    }
 `;

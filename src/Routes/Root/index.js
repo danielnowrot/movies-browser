@@ -2,7 +2,7 @@ import {
     StyledHeader, StyledImg, StyledTitle,
     StyledNavLink, StyledSearch, StyledBar,
     StyledMoviesBrowser, StyledNav, StyledIcon, StyledInput,
-    StyledSection
+    StyledSection,
 } from "./styled";
 import camera from "../../Images/camera.svg";
 import { Outlet, useLocation, Form, useSubmit, useNavigate } from "react-router-dom"
@@ -15,22 +15,25 @@ const Root = () => {
     const location = useLocation();
     const submit = useSubmit();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        navigate(`/movies/page/1`)
+    },[])
 
     const searchMovie = (new URLSearchParams(location.search)).get(searchQueryParamName) || null;
 
     const onInputChange = ({ currentTarget }) => {
         if (currentTarget.value.trim() === "") {
-            return navigate(location.pathname === "/movies" ? "/movies" : location.pathname === "/people" ? "/people" : "");
+            return navigate(location.pathname === "/movies/page/1" ? "/movies/page/1" : location.pathname === "/people" ? "/people" : "");
         }
 
         submit(currentTarget.form)
     };
 
-    const dispatch = useDispatch();
-
     useEffect(() => {
         dispatch(axiosMovieList());
-    },[searchMovie])
+    }, [searchMovie, dispatch])
 
     return (
         <>
@@ -43,7 +46,7 @@ const Root = () => {
                         </StyledTitle>
                     </StyledMoviesBrowser>
                     <StyledNav>
-                        <StyledNavLink to={`movies`}>
+                        <StyledNavLink to={`movies/page/1`}>
                             Movies
                         </StyledNavLink>
                         <StyledNavLink to={`people`}>
@@ -52,9 +55,11 @@ const Root = () => {
                     </StyledNav>
                 </StyledBar>
                 <StyledSearch>
-                    <Form autoComplete="off" action={location.pathname === "/movies" ? "/movies" : location.pathname === "/people" ? "/people" : ""}>
+                    <Form autoComplete="off" action={location.pathname === `/movies/page/${location.pathname.split('/')[3]}` ?
+                        "/movies/page/1" : location.pathname === "/people" ? "/people"
+                            : ""}>
                         <StyledInput
-                            placeholder={location.pathname === "/movies" ? "Search for movies..." : location.pathname === "/people" ? "Search for people..." : ""}
+                            placeholder={location.pathname === "/movies/page/1" ? "Search for movies..." : location.pathname === "/people" ? "Search for people..." : ""}
                             name={searchQueryParamName}
                             type="search"
                             disabled={location.pathname === "/" ? true : false}

@@ -20,7 +20,7 @@ export const MovieTile = ({ moviesList, genreList }) => {
                                 {movie.original_title}
                             </StyledName>
                             <StyledYear>
-                                {(movie.release_date).slice(0, 4)}
+                                {movie.release_date !== undefined ? (movie.release_date).slice(0, 4) : ""}
                             </StyledYear>
                             <StyledGenres>
                                 {(movie.genre_ids).forEach((element, index) => {
