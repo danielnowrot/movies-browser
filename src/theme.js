@@ -16,6 +16,9 @@ const theme = {
     breakpoints: {
         mobileMax: 767,
         mobileMin: 471,
+        max: 1250,
+        large: 990,
+        medium: 550,
         tilesMin: 256,
         topBar: {
             thick: 94,
