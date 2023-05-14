@@ -1,7 +1,7 @@
-import { useLocation } from "react-router";
+import { useLocation } from "react-router-dom";
 
 const useQueryParameter = (paramName) => {
-    const location = "people";
+    const location = useLocation();
     return new URLSearchParams(location.search).get(paramName);
 };
 
