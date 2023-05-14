@@ -4,6 +4,7 @@ import rootSaga from "./rootSaga";
 import movieDetailsReducer from "../features/movieDetails/movieDetailsSlice";
 import movieListReducer from "../features/moveList/movieListSlice";
 import genreListReducer from "../features/genreList/genreListSlice";
+import genreReducers from "../features/movieDetails/MovieTile/Genre/genreSlice";
 import movieListSearchReducer from "../features/searchParams/searchParamsSlice";
 import movieCreditsReducer from "../features/movieDetails/movieCreditsSlice";
 import personListReducer from "../features/personList/personListSlice";
@@ -17,6 +18,7 @@ const store = configureStore({
     movieDetails: movieDetailsReducer,
     movieList: movieListReducer,
     genreList: genreListReducer,
+    genres: genreReducers,
     movieListSearch: movieListSearchReducer,
     movieCredits: movieCreditsReducer,
     personList: personListReducer,
