@@ -3,32 +3,41 @@ import { createSlice } from "@reduxjs/toolkit";
 const personDetailsSlice = createSlice({
   name: "personDetails",
   initialState: {
-    personDetails: null,
-    status: "initial",
+    status: "loading",
+    person: [],
+    cast: [],
+    crew: [],
   },
   reducers: {
     axiosPersonDetails: () => ({
       status: "loading",
-      personDetails: null,
+      person: [],
+      cast: [],
+      crew: [],
     }),
-    axiosPersonDetailsSuccess: (_, { payload: personDetails }) => ({
+    axiosPersonDetailsSuccess: (_, { payload: { person, details } }) => ({
       status: "success",
-      personDetails,
+      person: [details],
+      cast: person.cast,
+      crew: person.crew,
     }),
     axiosPersonDetailsError: () => ({
       status: "error",
-      personDetails: null,
+      person: [],
+      cast: [],
+      crew: [],
     }),
   },
 });
 
-const selectPersonDetailsState = (state) => state.personDetails;
-
+export const selectPersonDetailsState = (state) => state.personDetails;
 export const selectPersonDetails = (state) =>
   selectPersonDetailsState(state).personDetails;
-
 export const selectPersonDetailsStatus = (state) =>
   selectPersonDetailsState(state).status;
+export const selectPerson = (state) => selectPersonDetailsState(state).person;
+export const selectCrew = (state) => selectPersonDetailsState(state).crew;
+export const selectCast = (state) => selectPersonDetailsState(state).cast;
 
 export const {
   axiosPersonDetails,
