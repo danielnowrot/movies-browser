@@ -2,12 +2,22 @@ import styled from "styled-components";
 
 export const SectionCastCrew = styled.section``;
 
+export const AllWraper = styled.div``;
+
 export const Wrapper = styled.div``;
 
-export const Alignment = styled.div`
-  display: grid;
-  grid-template-rows: auto auto;
+export const TileMovie = styled.article`
+  background: ${({ theme }) => theme.colors.white};
+  box-shadow: ${({ theme }) => theme.boxShadow};
+  width: 300px;
 `;
+export const DetailsContainer = styled.div``;
+
+export const DeatilsMovie = styled.div``;
+
+export const PhotoMovie = styled.img``;
+
+export const Year = styled.p``;
 
 export const List = styled.ul`
   list-style: none;
