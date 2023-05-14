@@ -30,7 +30,7 @@ const router = createHashRouter([
       },
       {
         path: "movies/page/:pageId/:idMovie",
-        element: <div>Movie detail</div>
+        element: <MovieDetails />,
       },
       {
         path: "people",
