@@ -36,8 +36,8 @@ const router = createHashRouter([
         path: "people",
         element: <People />,
       }, {
-        path: "people/:idPerson",
-        element: <div>Person detail</div>
+        path: "people/:id",
+        element: <PersonDetails/>
       },
     ],
   },
@@ -54,7 +54,7 @@ root.render(
           <MovieList />
           {/* <MovieDetails /> */}
           <PersonList />
-          <PersonDetails />
+          {/* {<PersonDetails />} */}
         </Container>
       </Provider>
     </ThemeProvider>
