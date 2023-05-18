@@ -9,39 +9,66 @@ import {
   Star,
   Title,
   Votes,
+  Overview,
+  Production,
+  CountryWrapper as SmallWrapper,
+  Country,
+  ReleaseDate,
+  FullDate,
 } from "./styled";
 import noPoster from "../../../Images/no poster.svg";
+import { GenreWrapper, GenreTag } from "./Genre/styled";
 
-export const MovieTile = ({
-  id,
-  title,
-  poster_path,
-  vote_average,
-  vote_count,
-  release_date,
-  genre_ids,
-}) => {
+export const MovieTile = ({ movieDetails }) => {
   return (
-    <TileWrapper key={id} id={id}>
+    <TileWrapper key={movieDetails.id} id={movieDetails.id}>
       <ImageWrapper
-        src={poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : noPoster}
+        src={
+          movieDetails.poster_path
+            ? `https://image.tmdb.org/t/p/w342${movieDetails.poster_path}`
+            : noPoster
+        }
         alt=""
       ></ImageWrapper>
       <DescriptionWrapper>
-        {title && <Title>{title}</Title>}
-        {release_date && (
-          <Subtitle>{new Date(release_date).getFullYear()}</Subtitle>
+        {movieDetails.title && <Title>{movieDetails.title}</Title>}
+        {movieDetails.release_date && (
+          <Subtitle>
+            {new Date(movieDetails.release_date).getFullYear()}
+          </Subtitle>
         )}
-        {genre_ids && <Genre genre_ids={genre_ids} />}
-        {vote_average && vote_count ? (
+        <SmallWrapper>
+          <Production>Production:&nbsp;</Production>
+          {movieDetails.production_countries &&
+            movieDetails.production_countries.map((country) => (
+              <Country key={country.name}>{country.name}</Country>
+            ))}
+        </SmallWrapper>
+        {movieDetails.release_date && (
+          <SmallWrapper>
+            <ReleaseDate>Release date:&nbsp;</ReleaseDate>
+            <FullDate>
+              {new Date(movieDetails.release_date).toLocaleDateString()}
+            </FullDate>
+          </SmallWrapper>
+        )}
+        <GenreWrapper>
+          {movieDetails.genres?.map((genre) => (
+            <GenreTag key={genre.id}>{genre.name}</GenreTag>
+          ))}
+        </GenreWrapper>
+
+        {/* {movieDetails.genres_id && <Genre movieDetails={movieDetails} />} */}
+        {movieDetails.vote_average && movieDetails.vote_count ? (
           <RatingWrapper>
             <Star />
-            <Rate>{vote_average}</Rate>
-            <Votes>{vote_count} votes</Votes>
+            <Rate>{movieDetails.vote_average?.toFixed(1)}</Rate>
+            <Votes>{movieDetails.vote_count} votes</Votes>
           </RatingWrapper>
         ) : (
           <Star />
         )}
+        <Overview>{movieDetails.overview}</Overview>
       </DescriptionWrapper>
     </TileWrapper>
   );
