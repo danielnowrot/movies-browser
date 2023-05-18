@@ -1,23 +1,8 @@
 import styled from "styled-components";
 
-export const SectionCastCrew = styled.section``;
-
 export const AllWraper = styled.div``;
 
 export const Wrapper = styled.div``;
-
-export const TileMovie = styled.article`
-  background: ${({ theme }) => theme.colors.white};
-  box-shadow: ${({ theme }) => theme.boxShadow};
-  width: 300px;
-`;
-export const DetailsContainer = styled.div``;
-
-export const DeatilsMovie = styled.div``;
-
-export const PhotoMovie = styled.img``;
-
-export const Year = styled.p``;
 
 export const List = styled.ul`
   list-style: none;
@@ -27,6 +12,7 @@ export const List = styled.ul`
   display: grid;
   grid-gap: 24px;
   grid-template-columns: repeat(auto-fill, minmax(208px, 1fr));
+  white-space: nowrap;
 `;
 
 export const Tile = styled.div`
@@ -35,6 +21,15 @@ export const Tile = styled.div`
   align-items: center;
   padding: 10px 15px 14px 16px;
   background: ${({ theme }) => theme.colors.white};
+  border-radius: 5px;
+  box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
+  transition: all 170ms;
+
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-8px);
+    box-shadow: 0px 6px 18px 2px #c2d7ff;
+  }
 `;
 
 export const Photo = styled.img`
