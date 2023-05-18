@@ -4,35 +4,20 @@ import {
   List,
   Name,
   Tile,
-  TileMovie,
-  PhotoMovie,
   Photo,
   Character,
   NoPathWrapper,
-  DetailsContainer,
-  DeatilsMovie,
-  Year,
 } from "./styled";
 import { SectionTitle } from "../../../../core/SectionTitle";
 import { ReactComponent as NoProfilePath } from "../../../../Images/NoProfilePath.svg";
 
-export const Section = ({ movieCredits, movieDetails }) => {
+export const Section = ({ movieCredits }) => {
   const pathPhoto = "https://image.tmdb.org/t/p/w185/";
-  const pathPhoto300 = "https://image.tmdb.org/t/p/w300/";
-  const pathPhoto1280 = "https://image.tmdb.org/t/p/w1280/";
+
   return (
     <AllWraper>
       <Wrapper>
-        <DetailsContainer>
-          <PhotoMovie
-            src={pathPhoto300 + movieDetails.poster_path}
-          ></PhotoMovie>
-          <DeatilsMovie>
-            <SectionTitle>{movieDetails.title}</SectionTitle>
-          </DeatilsMovie>
-        </DetailsContainer>
-
-        <SectionTitle>Crew</SectionTitle>
+        <SectionTitle>Cast</SectionTitle>
         <List>
           {Object.values(movieCredits.cast || {}).map(
             ({ profile_path, name, character }, index) => (
