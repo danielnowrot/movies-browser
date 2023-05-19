@@ -1,16 +1,22 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import magnifyingGlass from "../../Images/magniyfying-glass.svg";
 import { NavLink } from "react-router-dom";
 
 export const StyledHeader = styled.header`
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
     padding: 0 12px;
     justify-content: space-around;
     height: ${({ theme }) => theme.breakpoints.topBar.thick}px;
     background-color: ${({ theme }) => theme.colors.woodsmoke};
     white-space: nowrap;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.topBar.mediaSizeL}px) {
+        height: ${({ theme }) => theme.breakpoints.topBar.mediaThickS}px;
+        flex-wrap: wrap;
+        gap: 0px;
+    }
 
     @media (max-width: ${({ theme }) => theme.breakpoints.topBar.mediaSizeS}px) {
         flex-wrap: wrap;
@@ -20,12 +26,6 @@ export const StyledHeader = styled.header`
         gap: 24px;
     }
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.topBar.mediaSizeL}px) and 
-        (min-width: ${({ theme }) => theme.breakpoints.topBar.mediaSizeS}px) {
-        height: ${({ theme }) => theme.breakpoints.topBar.mediaThickS}px;
-        flex-wrap: wrap;
-        gap: 0px;
-    }
 `;
 
 export const StyledBar = styled.div`
@@ -115,7 +115,15 @@ export const StyledInput = styled.input`
 
     @media (max-width: ${({ theme }) => theme.breakpoints.topBar.mediaSizeL}px) {
     width: 100%;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.topBar.mediaSizeS}px) {
+    width: 100%;
     padding-left: 40px;
+    
+    ${({ media }) => media && css`
+    padding-left: 20px;
+    `}
     }
 `;
 
@@ -134,6 +142,10 @@ export const StyledIcon = styled.div`
     width: 13px;
     height: 13px;
     left: 16px;
+    
+    ${({ media }) => media && css`
+        display: none;
+    `}
     }
 `;
 
