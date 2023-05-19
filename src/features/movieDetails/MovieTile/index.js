@@ -40,7 +40,7 @@ export const MovieTile = ({
         {vote_average && vote_count ? (
           <RatingWrapper>
             <Star />
-            <Rate>{vote_average}</Rate>
+            <Rate>{vote_average.toFixed(1)}</Rate>
             <Votes>{vote_count} votes</Votes>
           </RatingWrapper>
         ) : (
