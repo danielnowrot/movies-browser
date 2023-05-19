@@ -1,5 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { StyledPages, StyledButton } from "./styled";
+import {
+    StyledPages, StyledButton, StyledButtonText,
+    StyledButtonLeftArrow, StyledButtonRightArrow,
+    StyledPageOf, StyledPage, StyledGetTotal
+} from "./styled";
 import leftArrow from "../../../Images/leftArrow.svg";
 import rightArrow from "../../../Images/rightArrow.svg";
 
@@ -30,7 +34,7 @@ const subPage = (getPage, navigate, query) => {
 const getPopularMoviesPages = (getPage, navigate, getTotal, query) => {
     let disabledFirst = false;
     let disabledLast = false
-    
+
     if (getPage < 2) {
         disabledFirst = true;
     }
@@ -41,12 +45,37 @@ const getPopularMoviesPages = (getPage, navigate, getTotal, query) => {
 
     return (
         <StyledPages>
-            <StyledButton disabled={disabledFirst} onClick={() => firstPage(navigate, query)}> <img src={leftArrow} alt="arrow" /> First</StyledButton>
-            <StyledButton disabled={disabledFirst} onClick={() => subPage(getPage, navigate, query)}> <img src={leftArrow} alt="arrow" /> Previous</StyledButton>
-            {/* Due to talk TMDB, error occure over > 500 pages so cant load above that */}
-            <div>Page {getPage} of {getTotal ? getTotal : 500}</div>
-            <StyledButton disabled={disabledLast} onClick={() => addPage(getPage, navigate, query)}>Next <img src={rightArrow} alt="arrow" /> </StyledButton>
-            <StyledButton disabled={disabledLast} onClick={() => lastPage(navigate, query, getTotal)}>Last <img src={rightArrow} alt="arrow" /> </StyledButton>
+            <StyledButton disabled={disabledFirst} onClick={() => firstPage(navigate, query)}>
+                <StyledButtonLeftArrow small />
+                <StyledButtonLeftArrow />
+                <StyledButtonText>
+                    First
+                </StyledButtonText>
+            </StyledButton>
+            <StyledButton
+                disabled={disabledFirst} onClick={() => subPage(getPage, navigate, query)}>
+                <StyledButtonLeftArrow small/>
+                <StyledButtonText>
+                    Previous
+                </StyledButtonText>
+            </StyledButton>
+            {/* Due to talk TMDB, error occure over > 500 pages, so cant load above that */}
+            <StyledPageOf>
+                Page <StyledPage>{getPage}</StyledPage> of {getTotal ? (<StyledGetTotal>{getTotal}</StyledGetTotal>) : <StyledGetTotal>500</StyledGetTotal>}
+            </StyledPageOf>
+            <StyledButton disabled={disabledLast} onClick={() => addPage(getPage, navigate, query)}>
+                <StyledButtonText>
+                    Next
+                </StyledButtonText>
+               <StyledButtonRightArrow small/>
+            </StyledButton>
+            <StyledButton disabled={disabledLast} onClick={() => lastPage(navigate, query, getTotal)}>
+                <StyledButtonText>
+                    Last
+                </StyledButtonText>
+                <StyledButtonRightArrow />
+                <StyledButtonRightArrow small />
+            </StyledButton>
         </StyledPages>
     )
 }

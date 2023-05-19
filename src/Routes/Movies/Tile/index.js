@@ -2,7 +2,7 @@ import {
     StyledContainer, StyledMovieLink, StyledImg,
     StyledDetails, StyledName, StyledYear, StyledGenres,
     StyledGenre, StyledRate, StyledAvarage, StyledVotes,
-    StyledStar
+    StyledStar, StyledNoVotes
 } from "./styled";
 import star from "../../../Images/star.svg"
 import noPicture from "../../../Images/noPicture.png";
@@ -32,15 +32,19 @@ export const MovieTile = ({ moviesList, genreList }) => {
                                 {genres.map((list, index) => <StyledGenre key={index}>{list}</StyledGenre>)}
                             </StyledGenres>
                         </StyledDetails>
-                        <StyledRate>
-                            <StyledStar src={star} />
-                            <StyledAvarage>
-                                {movie.vote_average !== 0 ? (movie.vote_average).toFixed(1) : movie.vote_average}
-                            </StyledAvarage>
-                            <StyledVotes>
-                                {movie.vote_count} {movie.vote_count !== 1 ? "votes" : "vote"}
-                            </StyledVotes>
-                        </StyledRate>
+                        {movie.vote_count > 0 ? (
+                            <StyledRate>
+                                <StyledStar src={star} />
+                                <StyledAvarage>
+                                    {(movie.vote_average).toFixed(1)}
+                                </StyledAvarage>
+                                <StyledVotes>
+                                    {movie.vote_count} {movie.vote_count !== 1 ? "votes" : "vote"}
+                                </StyledVotes>
+                            </StyledRate>
+                        ) : (
+                            <StyledNoVotes>No votes yet</StyledNoVotes>
+                        )}
                     </StyledContainer>
                 </StyledMovieLink>
             )
