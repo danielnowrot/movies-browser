@@ -49,7 +49,7 @@ const PopularPeople = () => {
                                 <section>
                                     <SectionTitle peopleList>
                                         {query ? `Search results for "${query}" (${totalResults})`
-                                            : "People list"}
+                                            : "Popular people"}
                                     </SectionTitle>
                                     {people && people.length > 0 && (
                                         <Grid popularPeople>
