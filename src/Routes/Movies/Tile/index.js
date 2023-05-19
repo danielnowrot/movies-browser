@@ -32,7 +32,7 @@ export const MovieTile = ({ moviesList, genreList }) => {
                         <StyledRate>
                             <StyledStar src={star} />
                             <StyledAvarage>
-                                {movie.vote_average}
+                                {(movie.vote_average).toFixed(1)}
                             </StyledAvarage>
                             <StyledVotes>
                                 {movie.vote_count} {movie.vote_count !== 1 ? "votes" : "vote"}
