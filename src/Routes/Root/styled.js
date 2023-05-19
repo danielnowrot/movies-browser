@@ -120,8 +120,8 @@ export const StyledInput = styled.input`
     @media (max-width: ${({ theme }) => theme.breakpoints.topBar.mediaSizeS}px) {
     width: 100%;
     padding-left: 40px;
-    
-    ${({ media }) => media && css`
+
+    ${({ media }) => media === "true" && css`
     padding-left: 20px;
     `}
     }
@@ -143,7 +143,7 @@ export const StyledIcon = styled.div`
     height: 13px;
     left: 16px;
     
-    ${({ media }) => media && css`
+    ${({ media }) => media === "true" && css`
         display: none;
     `}
     }
