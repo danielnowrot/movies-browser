@@ -109,7 +109,6 @@ export const StyledRate = styled.div`
     display: flex;
     gap: 12px;
 
-
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
         gap: 8px;
     }
@@ -147,4 +146,8 @@ export const StyledVotes = styled.div`
         font-size: 13px;
         line-height: 130%;
     }
+`;
+
+export const StyledNoVotes = styled.div`
+    color: #7E839A;
 `;
