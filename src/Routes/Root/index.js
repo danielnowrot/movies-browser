@@ -36,7 +36,6 @@ const Root = () => {
 
   const searchMovie =
     new URLSearchParams(location.search).get(searchQueryParamName) || null;
-
   const onInputChange = ({ currentTarget }) => {
     if (currentTarget.value.trim() === "") {
       return navigate(
@@ -81,11 +80,12 @@ const Root = () => {
             }
           >
             <StyledInput
+              media={searchMovie !== null ? "true" : "false"}
               placeholder={
-                location.pathname === "/movies/page/1" ||
+                location.pathname.split("/")[1] === "movies" ||
                 "movies/page/:pageId/:idMovie"
                   ? "Search for movies..."
-                  : location.pathname === "/people"
+                  : location.pathname.split("/")[1] === "people"
                   ? "Search for people..."
                   : ""
               }
@@ -96,7 +96,7 @@ const Root = () => {
               onChange={onInputChange}
             />
           </Form>
-          <StyledIcon />
+          <StyledIcon media={searchMovie !== null ? "true" : "false"} />
         </StyledSearch>
       </StyledHeader>
       <StyledSection>

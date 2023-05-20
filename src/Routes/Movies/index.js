@@ -76,6 +76,7 @@ const getPopularMovies = (
   if (loadingMovies === "success" && loadingGeners === "success") {
     const moviesList = fetchMovieData.results;
     const genreList = fetchMovieGenre.genres;
+
     return (
       <>
         <StyledMovies>
@@ -129,20 +130,20 @@ const Movies = () => {
 
   return searchParams === null
     ? getPopularMovies(
-        fetchMovieData,
-        fetchMovieGenre,
-        loadingMovies,
-        loadingGeners,
-        getPage
-      )
+      fetchMovieData,
+      fetchMovieGenre,
+      loadingMovies,
+      loadingGeners,
+      getPage
+    )
     : getSearchMovie(
-        fetchMoviesSearch,
-        loadingMoviesSearch,
-        fetchMovieGenre,
-        loadingGeners,
-        searchParams,
-        getPage
-      );
+      fetchMoviesSearch,
+      loadingMoviesSearch,
+      fetchMovieGenre,
+      loadingGeners,
+      searchParams,
+      getPage
+    );
 };
 
 export default Movies;

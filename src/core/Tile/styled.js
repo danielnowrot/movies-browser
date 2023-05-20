@@ -81,6 +81,8 @@ export const Year = styled.div`
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
+  font-size: 18px;
+  line-height: 120%;
 `;
 
 export const SubTitle = styled.p`
@@ -107,6 +109,7 @@ export const Information = styled.p`
 export const TileArticle = styled.article`
   font-size: 20px;
   line-height: 160%;
+  padding-top: 24px;
 
   @media (max-width: ${largeBreakpoint}px) {
     grid-row: 3;
