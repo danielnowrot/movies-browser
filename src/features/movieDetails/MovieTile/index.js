@@ -30,7 +30,7 @@ export const MovieTile = ({
       ></ImageWrapper>
       <DescriptionWrapper>
         {title && <Title>{title}</Title>}
-        {job && 
+        {job &&
           <Subtitle>{job}</Subtitle>
         }
         {release_date && (
@@ -44,8 +44,8 @@ export const MovieTile = ({
             <Votes>{vote_count} votes</Votes>
           </RatingWrapper>
         ) : (
-          <Star />
-        )}
+          <Votes>No votes yet
+          </Votes>)}
       </DescriptionWrapper>
     </TileWrapper>
   );
