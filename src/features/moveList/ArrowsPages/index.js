@@ -4,8 +4,6 @@ import {
     StyledButtonLeftArrow, StyledButtonRightArrow,
     StyledPageOf, StyledPage, StyledGetTotal
 } from "./styled";
-import leftArrow from "../../../Images/leftArrow.svg";
-import rightArrow from "../../../Images/rightArrow.svg";
 
 const firstPage = (navigate, query) => {
     query !== undefined ?
