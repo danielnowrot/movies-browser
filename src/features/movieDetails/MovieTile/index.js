@@ -14,6 +14,7 @@ import noPoster from "../../../Images/no poster.svg";
 
 export const MovieTile = ({
   id,
+  job,
   title,
   poster_path,
   vote_average,
@@ -29,6 +30,9 @@ export const MovieTile = ({
       ></ImageWrapper>
       <DescriptionWrapper>
         {title && <Title>{title}</Title>}
+        {job &&
+          <Subtitle>{job}</Subtitle>
+        }
         {release_date && (
           <Subtitle>{new Date(release_date).getFullYear()}</Subtitle>
         )}
@@ -36,12 +40,12 @@ export const MovieTile = ({
         {vote_average && vote_count ? (
           <RatingWrapper>
             <Star />
-            <Rate>{vote_average}</Rate>
+            <Rate>{vote_average.toFixed(1)}</Rate>
             <Votes>{vote_count} votes</Votes>
           </RatingWrapper>
         ) : (
-          <Star />
-        )}
+          <Votes>No votes yet
+          </Votes>)}
       </DescriptionWrapper>
     </TileWrapper>
   );
