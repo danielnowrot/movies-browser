@@ -26,3 +26,8 @@ export const StyledMovies = styled.div`
         gap: 16px;
     }
 `;
+
+export const StyledContainer = styled.div`
+    max-width: 1400px;
+    margin: auto;
+`

@@ -66,7 +66,7 @@ export const PersonDetails = () => {
               />
             )
           )}
-
+          
           {cast && cast.length > 0 && (
             <>
               <SectionTitle detailsPage>

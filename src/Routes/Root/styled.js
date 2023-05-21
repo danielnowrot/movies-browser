@@ -153,10 +153,8 @@ export const StyledIcon = styled.div`
 `;
 
 export const StyledSection = styled.section`
-  margin: auto;
-  margin-top: 56px;
-  display: flex;
-  flex-direction: column;
+    margin: auto;
+    margin-top: 56px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
     margin-top: 24px;

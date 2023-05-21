@@ -23,6 +23,7 @@ export const Section = ({ movieCredits }) => {
           {Object.values(movieCredits.cast || {}).map(
             ({ profile_path, name, character, id }, index) => (
               <StyledLink key={index} to={`../people/${id}`}>
+
                 <Tile>
                   {profile_path ? (
                     <Photo src={`${pathPhoto}${profile_path}`} />
