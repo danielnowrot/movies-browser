@@ -11,15 +11,14 @@ export const AllWraper = styled.div``;
 
 export const Wrapper = styled.div``;
 
-export const List = styled.ul`
-  list-style: none;
+export const List = styled.div`
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(208px, 1fr));
   padding: 0;
   margin: 0;
-  justify-content: center;
-  display: grid;
-  grid-gap: 24px;
-  grid-template-columns: repeat(auto-fill, minmax(208px, 1fr));
-  white-space: nowrap;
+  grid-gap: 24px;  
+  /* white-space: nowrap; */
 
   @media (max-width: ${mobileMaxBreakpoint}px) {
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -31,6 +30,8 @@ export const Tile = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
+  
   padding: 10px 15px 14px 16px;
   background: ${({ theme }) => theme.colors.white};
   border-radius: 5px;
@@ -53,7 +54,7 @@ export const Photo = styled.img`
   width: 100%;
 `;
 
-export const Name = styled.p`
+export const Name = styled.div`
   margin: 0px;
   padding-top: 14px;
   font-weight: 500;
@@ -68,7 +69,7 @@ export const Name = styled.p`
   }
 `;
 
-export const Character = styled.p`
+export const Character = styled.div`
   margin: 0;
   padding-top: 8px;
   font-size: 18px;
