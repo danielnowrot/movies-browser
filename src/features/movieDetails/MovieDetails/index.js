@@ -21,8 +21,11 @@ import {
 } from "./styled";
 
 import { MovieTile } from "../MovieTile";
+import { useParams } from "react-router-dom";
 
 export const MovieDetails = () => {
+  const { idMovie } = useParams();
+  
   const dispatch = useDispatch();
   const movieDetails = useSelector(selectMovieDetails);
   const movieCredits = useSelector(selectMovieCredits);
@@ -30,7 +33,7 @@ export const MovieDetails = () => {
   const statusCredits = useSelector(selectMovieCredits);
 
   useEffect(() => {
-    dispatch(axiosMovieDetails());
+    dispatch(axiosMovieDetails(idMovie));
   }, [dispatch]);
 
   useEffect(() => {
