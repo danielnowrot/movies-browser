@@ -82,8 +82,7 @@ const Root = () => {
             <StyledInput
               media={searchMovie !== null ? "true" : "false"}
               placeholder={
-                location.pathname.split("/")[1] === "movies" ||
-                "movies/page/:pageId/:idMovie"
+                location.pathname.split("/")[1] === "movies"
                   ? "Search for movies..."
                   : location.pathname.split("/")[1] === "people"
                   ? "Search for people..."
