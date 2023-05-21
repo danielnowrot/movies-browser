@@ -23,6 +23,7 @@ export const StyledPhotoBackdrop = styled.div`
   max-width: 1368px;
   margin: auto;
   height: 770px;
+ 
   background-image: url("${pathPhoto1280}${PhotoBackdrop}");
   background-position: center;
   background-size: contain;
@@ -31,6 +32,11 @@ export const StyledPhotoBackdrop = styled.div`
   align-content: end;
   color: ${({ theme }) => theme.colors.white};
   box-shadow: rgb(0, 0, 0) 0px 0px 6vw 5.5vw inset;
+
+  @media (max-width: 1400px) {
+    height: calc(770 / 1400 * 100vw);
+  }
+
   @media (max-width: ${mobileMaxBreakpoint}px) {
     background-image: url("${pathPhoto780}${PhotoBackdrop}");
   }
@@ -40,6 +46,12 @@ export const OriginalTitle = styled.h1`
   font-size: 64px;
   line-height: 120%;
   margin-bottom: 25px;
+  margin-left: 24px;
+
+  @media (max-width: 1400px) {
+    font-size: calc(64 / 1400 * 100vw);
+    margin-bottom: calc(25 / 1400 * 100vw);
+  }
 
   @media (max-width: ${mobileMaxBreakpoint}px) {
     font-size: 24px;
@@ -53,6 +65,7 @@ export const Background = styled.div`
 
 export const VoteArea = styled.div`
   display: flex;
+  margin-left: 24px;
 `;
 
 export const StyledStarIcon = styled(StarIcon)`
@@ -63,6 +76,11 @@ export const StyledStarIcon = styled(StarIcon)`
     width: 16px;
     height: 15px;
   }
+
+  @media (max-width: 1400px) {
+    width: calc(40 / 1400 * 100vw);
+    height: calc(38 / 1400 * 100vw);
+  }
 `;
 
 export const Vote = styled.span`
@@ -72,10 +90,15 @@ export const Vote = styled.span`
   margin-left: 8px;
   display: flex;
   align-items: center;
+  
 
   @media (max-width: ${mobileMaxBreakpoint}px) {
     font-weight: 600;
     font-size: 13px;
+  }
+
+  @media (max-width: 1400px) {
+    font-size: calc(30 / 1400 * 100vw);
   }
 `;
 
@@ -93,13 +116,18 @@ export const Ten = styled.span`
   }
 `;
 
-export const VotesAmount = styled.p`
+export const VotesAmount = styled.div`
   font-size: 16px;
   line-height: 120%;
   margin: 17px 0 56px;
+  margin-left: 24px;
 
   @media (max-width: ${mobileMaxBreakpoint}px) {
     font-size: 13px;
     line-height: 130%;
+  }
+
+  @media (max-width: 1400px) {
+    margin-bottom: calc(56 / 1400 * 100vw);
   }
 `;

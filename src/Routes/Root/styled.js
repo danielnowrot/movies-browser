@@ -150,11 +150,8 @@ export const StyledIcon = styled.div`
 `;
 
 export const StyledSection = styled.section`
-    max-width: 1400px;
     margin: auto;
     margin-top: 56px;
-    display: flex;
-    flex-direction: column;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobileMin}px) {
     margin-top: 24px;
