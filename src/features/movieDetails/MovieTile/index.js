@@ -1,4 +1,3 @@
-import { Genre } from "./Genre";
 import {
   DescriptionWrapper,
   Subtitle,
@@ -41,10 +40,12 @@ export const MovieTile = ({ movieDetails }) => {
         )}
         <SmallWrapper>
           <Production>Production:&nbsp;</Production>
-          {movieDetails.production_countries &&
-            movieDetails.production_countries.map((country) => (
-              <Country key={country.name}>{country.name}</Country>
-            ))}
+          <Country>
+            {movieDetails.production_countries &&
+              movieDetails.production_countries
+                .map((country) => country.name)
+                .join(", ")}
+          </Country>
         </SmallWrapper>
         {movieDetails.release_date && (
           <SmallWrapper>
@@ -59,8 +60,6 @@ export const MovieTile = ({ movieDetails }) => {
             <GenreTag key={genre.id}>{genre.name}</GenreTag>
           ))}
         </GenreWrapper>
-
-        {/* {movieDetails.genres_id && <Genre movieDetails={movieDetails} />} */}
         {movieDetails.vote_average && movieDetails.vote_count ? (
           <RatingWrapper>
             <Star />
@@ -71,8 +70,8 @@ export const MovieTile = ({ movieDetails }) => {
         ) : (
           <Star />
         )}
-        <Overview>{movieDetails.overview}</Overview>
       </DescriptionWrapper>
+      <Overview>{movieDetails.overview}</Overview>
     </TileWrapper>
   );
 };

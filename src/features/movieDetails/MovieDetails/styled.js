@@ -5,7 +5,6 @@ import { ReactComponent as StarIcon } from "../../../Images/star.svg";
 
 const pathPhoto1280 = "https://image.tmdb.org/t/p/w1280/";
 const pathPhoto780 = "https://image.tmdb.org/t/p/w780/";
-const pathPhoto300 = "https://image.tmdb.org/t/p/w300/";
 
 const mobileMaxBreakpoint = ({ theme }) => theme.breakpoints.mobileMax;
 
@@ -23,7 +22,6 @@ export const StyledPhotoBackdrop = styled.div`
   max-width: 1368px;
   margin: auto;
   height: 770px;
- 
   background-image: url("${pathPhoto1280}${PhotoBackdrop}");
   background-position: center;
   background-size: contain;
@@ -90,7 +88,6 @@ export const Vote = styled.span`
   margin-left: 8px;
   display: flex;
   align-items: center;
-  
 
   @media (max-width: ${mobileMaxBreakpoint}px) {
     font-weight: 600;
