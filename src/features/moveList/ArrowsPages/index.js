@@ -44,7 +44,7 @@ const getPopularMoviesPages = (getPage, navigate, getTotal, query) => {
     return (
         <StyledPages>
             <StyledButton disabled={disabledFirst} onClick={() => firstPage(navigate, query)}>
-                <StyledButtonLeftArrow small />
+                <StyledButtonLeftArrow small="true"/>
                 <StyledButtonLeftArrow />
                 <StyledButtonText>
                     First
@@ -52,7 +52,7 @@ const getPopularMoviesPages = (getPage, navigate, getTotal, query) => {
             </StyledButton>
             <StyledButton
                 disabled={disabledFirst} onClick={() => subPage(getPage, navigate, query)}>
-                <StyledButtonLeftArrow small/>
+                <StyledButtonLeftArrow small="true"/>
                 <StyledButtonText>
                     Previous
                 </StyledButtonText>
@@ -65,14 +65,14 @@ const getPopularMoviesPages = (getPage, navigate, getTotal, query) => {
                 <StyledButtonText>
                     Next
                 </StyledButtonText>
-               <StyledButtonRightArrow small/>
+               <StyledButtonRightArrow small="true"/>
             </StyledButton>
             <StyledButton disabled={disabledLast} onClick={() => lastPage(navigate, query, getTotal)}>
                 <StyledButtonText>
                     Last
                 </StyledButtonText>
                 <StyledButtonRightArrow />
-                <StyledButtonRightArrow small />
+                <StyledButtonRightArrow small="true"/>
             </StyledButton>
         </StyledPages>
     )

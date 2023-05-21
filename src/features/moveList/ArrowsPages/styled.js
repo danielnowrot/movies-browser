@@ -45,7 +45,7 @@ export const StyledButtonText = styled.div`
 export const StyledButtonLeftArrow = styled(leftArrow)`
     display: none;
 
-    ${({ small }) => small && css`
+    ${({ small }) => small="true" && css`
         display: block;
 
         @media(max-width: ${({ theme }) => theme.breakpoints.arrow}px) {
@@ -63,7 +63,7 @@ export const StyledButtonLeftArrow = styled(leftArrow)`
 export const StyledButtonRightArrow = styled(rightArrow)`
     display: none;
 
-    ${({ small }) => small && css`
+    ${({ small }) => small="true" && css`
         display: block;
 
         @media(max-width: ${({ theme }) => theme.breakpoints.arrow}px) {
