@@ -6,11 +6,11 @@ import {
   axiosMovieCreditsError,
 } from "./movieCreditsSlice";
 
-function* axiosMovieCreditsHandler() {
+function* axiosMovieCreditsHandler({ payload: idMovie }) {
   try {
     yield delay(1000);
-    const movieCredits = yield call(getMovieCredits);
-    // console.log(movieCredits);
+    const movieCredits = yield call(getMovieCredits, idMovie);
+    console.log(movieCredits);
     yield put(axiosMovieCreditsSuccess(movieCredits));
   } catch (error) {
     yield put(axiosMovieCreditsError());

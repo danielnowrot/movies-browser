@@ -1,4 +1,4 @@
-import { StyledTitle, StyledMovies } from "./styled";
+import { StyledTitle, StyledMovies, StyledContainer } from "./styled";
 import { useDispatch, useSelector } from "react-redux";
 import {
   axiosMovieList,
@@ -43,7 +43,7 @@ const getSearchMovie = (
       return <NoResults query={searchParams} />;
     }
     return (
-      <>
+      <StyledContainer>
         <StyledMovies>
           <StyledTitle>
             Search results for "{searchParams}" ({moviesList.length})
@@ -55,7 +55,7 @@ const getSearchMovie = (
           getTotal={fetchMoviesSearch.total_pages}
           query={searchParams}
         />
-      </>
+      </StyledContainer>
     );
   }
 
@@ -76,14 +76,15 @@ const getPopularMovies = (
   if (loadingMovies === "success" && loadingGeners === "success") {
     const moviesList = fetchMovieData.results;
     const genreList = fetchMovieGenre.genres;
+
     return (
-      <>
+      <StyledContainer>
         <StyledMovies>
           <StyledTitle>Popular movies</StyledTitle>
           <MovieTile moviesList={moviesList} genreList={genreList} />
         </StyledMovies>
         <ArrowsPages getPage={getPage} />
-      </>
+      </StyledContainer>
     );
   } else {
     return loadingMovies === "loading" || loadingGeners === "loading" ? (
@@ -129,20 +130,20 @@ const Movies = () => {
 
   return searchParams === null
     ? getPopularMovies(
-        fetchMovieData,
-        fetchMovieGenre,
-        loadingMovies,
-        loadingGeners,
-        getPage
-      )
+      fetchMovieData,
+      fetchMovieGenre,
+      loadingMovies,
+      loadingGeners,
+      getPage
+    )
     : getSearchMovie(
-        fetchMoviesSearch,
-        loadingMoviesSearch,
-        fetchMovieGenre,
-        loadingGeners,
-        searchParams,
-        getPage
-      );
+      fetchMoviesSearch,
+      loadingMoviesSearch,
+      fetchMovieGenre,
+      loadingGeners,
+      searchParams,
+      getPage
+    );
 };
 
 export default Movies;

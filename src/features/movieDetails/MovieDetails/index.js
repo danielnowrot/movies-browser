@@ -1,4 +1,4 @@
-import { Wrapper } from "./styled";
+import { StyledStarIcon, Wrapper } from "./styled";
 import { useSelector, useDispatch } from "react-redux";
 import {
   axiosMovieDetails,
@@ -9,34 +9,59 @@ import { useEffect } from "react";
 import { selectMovieCredits, axiosMovieCredits } from "../movieCreditsSlice";
 import { Section } from "./Section";
 import { Loading } from "../../../core/status/Loading";
-import { PhotoBackdrop } from "./styled";
+import { Error } from "../../../core/status/Error";
+import {
+  StyledPhotoBackdrop,
+  OriginalTitle,
+  Background,
+  VoteArea,
+  Vote,
+  Ten,
+  VotesAmount,
+} from "./styled";
+
+import { MovieTile } from "../MovieTile";
+import { useParams } from "react-router-dom";
 
 export const MovieDetails = () => {
+  const { idMovie } = useParams();
+
   const dispatch = useDispatch();
   const movieDetails = useSelector(selectMovieDetails);
   const movieCredits = useSelector(selectMovieCredits);
   const status = useSelector(selectMovieDetailsStatus);
+  const statusCredits = useSelector(selectMovieCredits);
 
   useEffect(() => {
-    dispatch(axiosMovieDetails());
+    dispatch(axiosMovieDetails(idMovie));
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(axiosMovieCredits());
+    dispatch(axiosMovieCredits(idMovie));
   }, [dispatch]);
-  const pathPhoto1280 = "https://image.tmdb.org/t/p/w1280/";
 
   return (
     <>
-      {status === "loading" ? (
-        <Loading></Loading>
+      {status === "loading" || statusCredits === "loading" ? (
+        <Loading />
+      ) : status === "error" || statusCredits === "error" ? (
+        <Error />
       ) : (
         <>
-          <PhotoBackdrop
-            src={pathPhoto1280 + movieDetails.backdrop_path}
-          ></PhotoBackdrop>
+          <Background>
+            <StyledPhotoBackdrop>
+              <OriginalTitle>{movieDetails.original_title}</OriginalTitle>
+              <VoteArea>
+                <StyledStarIcon />
+                <Vote>{movieDetails.vote_average?.toFixed(1)}</Vote>&nbsp;
+                <Ten>/&nbsp;10</Ten>
+              </VoteArea>
+              <VotesAmount>{movieDetails.vote_count} votes</VotesAmount>
+            </StyledPhotoBackdrop>
+          </Background>
           <Wrapper>
-            <Section movieCredits={movieCredits} movieDetails={movieDetails} />
+            <MovieTile movieDetails={movieDetails}></MovieTile>
+            <Section movieCredits={movieCredits} />
           </Wrapper>
         </>
       )}
