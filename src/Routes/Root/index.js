@@ -76,7 +76,7 @@ const Root = () => {
                 ? "/movies/page/1"
                 : location.pathname === "/people"
                 ? "/people"
-                : ""
+                : "/movies/page/1"
             }
           >
             <StyledInput
