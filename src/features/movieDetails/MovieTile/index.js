@@ -15,12 +15,13 @@ import {
   Country,
   ReleaseDate,
   FullDate,
+  Ten,
 } from "./styled";
 import noPoster from "../../../Images/no poster.svg";
 import { GenreWrapper, GenreTag } from "./Genre/styled";
 
 export const MovieTile = ({ movieDetails }) => {
-  console.log(movieDetails)
+  console.log(movieDetails);
   return (
     <TileWrapper key={movieDetails.id} id={movieDetails.id}>
       <ImageWrapper
@@ -64,6 +65,7 @@ export const MovieTile = ({ movieDetails }) => {
           <RatingWrapper>
             <Star />
             <Rate>{movieDetails.vote_average?.toFixed(1)}</Rate>
+            <Ten>/10</Ten>
             <Votes>{movieDetails.vote_count} votes</Votes>
           </RatingWrapper>
         ) : (
