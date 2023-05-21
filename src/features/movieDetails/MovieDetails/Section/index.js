@@ -21,8 +21,9 @@ export const Section = ({ movieCredits }) => {
         <SectionTitle>Cast</SectionTitle>
         <List>
           {Object.values(movieCredits.cast || {}).map(
-            ({ profile_path, name, character }, index) => (
-              <StyledLink key={index} to={`/people/:id`}>
+            ({ profile_path, name, character, id }, index) => (
+              <StyledLink key={index} to={`../people/${id}`}>
+
                 <Tile>
                   {profile_path ? (
                     <Photo src={`${pathPhoto}${profile_path}`} />
@@ -42,18 +43,20 @@ export const Section = ({ movieCredits }) => {
         <SectionTitle>Crew</SectionTitle>
         <List>
           {Object.values(movieCredits.crew || {}).map(
-            ({ profile_path, name, department }, index) => (
-              <Tile key={index}>
-                {profile_path ? (
-                  <Photo src={`${pathPhoto}${profile_path}`} />
-                ) : (
-                  <NoPathWrapper>
-                    <NoProfilePath />
-                  </NoPathWrapper>
-                )}
-                <Name>{name}</Name>
-                <Character>{department}</Character>
-              </Tile>
+            ({ profile_path, name, department, id }, index) => (
+              <StyledLink key={index} to={`../people/${id}`}>
+                <Tile key={index}>
+                  {profile_path ? (
+                    <Photo src={`${pathPhoto}${profile_path}`} />
+                  ) : (
+                    <NoPathWrapper>
+                      <NoProfilePath />
+                    </NoPathWrapper>
+                  )}
+                  <Name>{name}</Name>
+                  <Character>{department}</Character>
+                </Tile>
+              </StyledLink>
             )
           )}
         </List>

@@ -25,7 +25,7 @@ import { useParams } from "react-router-dom";
 
 export const MovieDetails = () => {
   const { idMovie } = useParams();
-  
+
   const dispatch = useDispatch();
   const movieDetails = useSelector(selectMovieDetails);
   const movieCredits = useSelector(selectMovieCredits);
@@ -37,7 +37,7 @@ export const MovieDetails = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(axiosMovieCredits());
+    dispatch(axiosMovieCredits(idMovie));
   }, [dispatch]);
 
   return (
