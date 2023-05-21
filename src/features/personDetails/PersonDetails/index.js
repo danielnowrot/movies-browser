@@ -129,7 +129,7 @@ export const PersonDetails = () => {
                     genre_ids,
                   }) => (
                     <li key={credit_id}>
-                      <StyledLink to={`/movies/${id}`}>
+                      <StyledLink to={`/movies/page/1/${id}`}>
                         <MovieTile
                           key={credit_id}
                           id={id}
