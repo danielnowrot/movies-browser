@@ -31,7 +31,7 @@ export const MovieDetails = () => {
   const movieCredits = useSelector(selectMovieCredits);
   const status = useSelector(selectMovieDetailsStatus);
   const statusCredits = useSelector(selectMovieCredits);
-
+  
   useEffect(() => {
     dispatch(axiosMovieDetails(idMovie));
   }, [dispatch]);

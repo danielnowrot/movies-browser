@@ -10,7 +10,6 @@ function* axiosMovieCreditsHandler() {
   try {
     yield delay(1000);
     const movieCredits = yield call(getMovieCredits);
-    // console.log(movieCredits);
     yield put(axiosMovieCreditsSuccess(movieCredits));
   } catch (error) {
     yield put(axiosMovieCreditsError());
