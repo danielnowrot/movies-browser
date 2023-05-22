@@ -4,7 +4,7 @@ import rootSaga from "./rootSaga";
 import movieDetailsReducer from "../features/movieDetails/movieDetailsSlice";
 import movieListReducer from "../features/moveList/movieListSlice";
 import genreListReducer from "../features/genreList/genreListSlice";
-import genreReducers from "../features/movieDetails/MovieDetails/MovieTile/Genre/genreSlice";
+import genreReducers from "../features/movieDetails/PersonMovieTile/Genre/genreSlice";
 import movieListSearchReducer from "../features/searchParams/searchParamsSlice";
 import movieCreditsReducer from "../features/movieDetails/movieCreditsSlice";
 import personListReducer from "../features/personList/personListSlice";
