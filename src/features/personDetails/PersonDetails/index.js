@@ -13,7 +13,7 @@ import { Tile } from "../../../core/Tile";
 import { ContentContainer, Wrapper } from "./styled";
 import { SectionTitle } from "../../../core/SectionTitle";
 import { MovieTile } from "../../movieDetails/PersonMovieTile";
-import { fetchGenres } from "../../movieDetails/PersonMovieTile/Genre/genreSlice";
+import { fetchGenres } from "../../movieDetails/MovieDetails/MovieTile/Genre/genreSlice";
 import { StyledLink } from "../../people/PeopleList/styled";
 import { Loading } from "../../../core/status/Loading";
 import { Error } from "../../../core/status/Error";
