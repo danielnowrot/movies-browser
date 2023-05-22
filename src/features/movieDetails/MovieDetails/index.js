@@ -20,7 +20,7 @@ import {
   VotesAmount,
 } from "./styled";
 
-import { MovieTile } from "../MovieTile";
+import { MovieTile } from "../MovieDetails/MovieTile";
 import { useParams } from "react-router-dom";
 
 export const MovieDetails = () => {

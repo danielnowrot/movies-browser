@@ -6,7 +6,7 @@ import { personListSaga } from "../features/personList/personListSaga";
 import { personDetailsSaga } from "../features/personDetails/personDetailsSaga";
 import { personCreditsSaga } from "../features/personDetails/personCreditsSaga";
 import { movieSearchParamsSaga } from "../features/searchParams/searchParamsSaga";
-import { watchFetchGenres } from "../features/movieDetails/PersonMovieTile/Genre/genreSaga";
+import { watchFetchGenres } from "../features/movieDetails/MovieDetails/MovieTile/Genre/genreSaga";
 
 export default function* rootSaga() {
   yield all([
