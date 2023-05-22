@@ -16,7 +16,7 @@ import {
   FullDate,
   Ten,
 } from "./styled";
-import noPoster from "../../../Images/no poster.svg";
+import noPoster from "../../../../Images/no poster.svg";
 import { GenreWrapper, GenreTag } from "./Genre/styled";
 
 export const MovieTile = ({ movieDetails }) => {

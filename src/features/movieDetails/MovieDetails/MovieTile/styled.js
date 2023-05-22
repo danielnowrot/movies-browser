@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as StarIcon } from "../../../Images/star.svg";
+import { ReactComponent as StarIcon } from "../../../../Images/star.svg";
 const mobileMaxBreakpoint = ({ theme }) => theme.breakpoints.mobileMax;
 
 export const TileWrapper = styled.div`
