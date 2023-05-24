@@ -1,9 +1,10 @@
 <h1 align="center">Welcome to our group project</h1>
+<br/>
 
 ![image](public/movieBrowserGif.gif)
 
 ## To Connect with the page: [click-me](https://danielnowrot.github.io/movies-browser)
-
+<br/>
 
 #### In this project we used the following technologies:
 
@@ -11,14 +12,14 @@
     <img src="https://skillicons.dev/icons?i=react,webpack,redux,js,html,css,styledcomponents,vscode,git,github,)%5D(https://skillicons.dev" />
   </a>
 
-
+<br/>
 ## Authors:
 
-- Daniel Nowrot
-- Przemysław Gajczewski
-- Jacek Warzecha
+- ### Daniel Nowrot
+- ###Przemysław Gajczewski
+- ### Jacek Warzecha
 
-
+<br/>
 ## Available Scripts
 
 In the project directory, you can run:
