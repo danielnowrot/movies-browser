@@ -6,7 +6,6 @@
 
 ---
 
-<br/>
 
 #### In this project we used the following technologies:
 
@@ -16,7 +15,6 @@
 
 ---
 
-<br/>
 
 ## Authors:
 
@@ -26,7 +24,6 @@
 
 ---
 
-<br/>
 
 ## Available Scripts
 
