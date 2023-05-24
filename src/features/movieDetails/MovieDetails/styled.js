@@ -52,7 +52,9 @@ export const OriginalTitle = styled.h1`
   }
 
   @media (max-width: ${mobileMaxBreakpoint}px) {
+    font-weight: 600;
     font-size: 24px;
+    margin-bottom: 8px;
   }
 `;
 
@@ -91,7 +93,7 @@ export const Vote = styled.span`
 
   @media (max-width: ${mobileMaxBreakpoint}px) {
     font-weight: 600;
-    font-size: 13px;
+    font-size: 14px;
   }
 
   @media (max-width: 1400px) {
@@ -120,8 +122,8 @@ export const VotesAmount = styled.div`
   margin-left: 24px;
 
   @media (max-width: ${mobileMaxBreakpoint}px) {
-    font-size: 13px;
-    line-height: 130%;
+    font-size: 10px;
+    line-height: 120%;
   }
 
   @media (max-width: 1400px) {

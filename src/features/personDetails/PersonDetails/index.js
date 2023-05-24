@@ -19,7 +19,6 @@ import { Loading } from "../../../core/status/Loading";
 import { Error } from "../../../core/status/Error";
 import { searchQueryParamName } from "../../useQueryParameter";
 
-
 export const PersonDetails = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -66,7 +65,7 @@ export const PersonDetails = () => {
               />
             )
           )}
-          
+
           {cast && cast.length > 0 && (
             <>
               <SectionTitle detailsPage>
@@ -89,7 +88,7 @@ export const PersonDetails = () => {
                   }) => (
                     <li key={credit_id}>
                       <StyledLink to={`/movies/page/1/${id}`}>
-                        {/* <MovieTile
+                        <MovieTile
                           key={credit_id}
                           id={id}
                           title={title}
@@ -99,7 +98,7 @@ export const PersonDetails = () => {
                           genre_ids={genre_ids}
                           character={character}
                           year={release_date}
-                        /> */}
+                        />
                       </StyledLink>
                     </li>
                   )
@@ -130,7 +129,7 @@ export const PersonDetails = () => {
                   }) => (
                     <li key={credit_id}>
                       <StyledLink to={`/movies/page/1/${id}`}>
-                        {/* <MovieTile
+                        <MovieTile
                           key={credit_id}
                           id={id}
                           title={title}
@@ -140,7 +139,7 @@ export const PersonDetails = () => {
                           year={release_date}
                           poster_path={poster_path}
                           genre_ids={genre_ids}
-                        /> */}
+                        />
                       </StyledLink>
                     </li>
                   )

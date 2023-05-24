@@ -19,7 +19,6 @@ function* axiosPersonCreditsHandler({ payload: { page, query } }) {
   try {
     yield delay(1000);
     const people = yield call(getPersonCredits, path);
-    console.log(people);
     yield put(axiosPersonCreditsSuccess(people));
   } catch (error) {
     yield put(axiosPersonCreditsError());
