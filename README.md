@@ -14,6 +14,7 @@
     <img src="https://skillicons.dev/icons?i=react,webpack,redux,js,html,css,styledcomponents,vscode,git,github,)%5D(https://skillicons.dev" />
   </a>
 
+<br>
 <br/>
 
 ## Authors:
