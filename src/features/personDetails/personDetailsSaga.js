@@ -16,13 +16,12 @@ function* axiosPersonDetailsHandler({ payload: id }) {
       call(getApi, personPath),
       call(getApi, detailsPath),
     ]);
-    console.log([person, details]);
     yield put(axiosPersonDetailsSuccess({ person, details }));
   } catch (error) {
     yield put(axiosPersonDetailsError());
   }
-};
+}
 
 export function* personDetailsSaga() {
   yield takeLatest(axiosPersonDetails.type, axiosPersonDetailsHandler);
-};
+}

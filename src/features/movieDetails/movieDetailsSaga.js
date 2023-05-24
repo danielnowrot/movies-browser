@@ -10,7 +10,6 @@ function* axiosMovieDetailsHandler({ payload: idMovie }) {
   try {
     yield delay(1000);
     const movieDetails = yield call(getMovieDetails, idMovie);
-    console.log(movieDetails);
     yield put(axiosMovieDetailsSuccess(movieDetails));
   } catch (error) {
     yield put(axiosMovieDetailsError());

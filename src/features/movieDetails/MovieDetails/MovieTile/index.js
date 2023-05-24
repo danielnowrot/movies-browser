@@ -20,7 +20,6 @@ import noPoster from "../../../../Images/no poster.svg";
 import { GenreWrapper, GenreTag } from "./Genre/styled";
 
 export const MovieTile = ({ movieDetails }) => {
-  console.log(movieDetails);
   return (
     <TileWrapper key={movieDetails.id} id={movieDetails.id}>
       <ImageWrapper

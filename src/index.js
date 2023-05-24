@@ -35,9 +35,10 @@ const router = createHashRouter([
       {
         path: "people",
         element: <People />,
-      }, {
+      },
+      {
         path: "people/:id",
-        element: <PersonDetails/>
+        element: <PersonDetails />,
       },
     ],
   },
@@ -52,9 +53,7 @@ root.render(
         <Container>
           <StyledGlobal />
           <MovieList />
-          {/* <MovieDetails /> */}
           <PersonList />
-          {/* {<PersonDetails />} */}
         </Container>
       </Provider>
     </ThemeProvider>

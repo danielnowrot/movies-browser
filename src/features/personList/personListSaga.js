@@ -10,7 +10,6 @@ function* axiosPersonListHandler() {
   try {
     yield delay(1000);
     const personList = yield call(getPopularPersonAPI);
-    console.log(personList);
     yield put(axiosPersonListSuccess(personList));
   } catch (error) {
     yield put(axiosPersonListError());
