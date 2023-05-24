@@ -95,10 +95,6 @@ export const Vote = styled.span`
     font-weight: 600;
     font-size: 14px;
   }
-
-  @media (max-width: 1400px) {
-    font-size: calc(30 / 1400 * 100vw);
-  }
 `;
 
 export const Ten = styled.span`
