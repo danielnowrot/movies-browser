@@ -6,8 +6,6 @@
 
 ---
 
-<br/>
-
 #### In this project we used the following technologies:
 
   <a href="https://skillicons.dev">
@@ -16,17 +14,13 @@
 
 ---
 
-<br/>
-
 ## Authors:
 
-- Daniel Nowrot
-- Przemysław Gajczewski
-- Jacek Warzecha
+- ### Daniel Nowrot
+- ### Przemysław Gajczewski
+- ### Jacek Warzecha
 
 ---
-
-<br/>
 
 ## Available Scripts
 
