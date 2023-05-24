@@ -4,8 +4,6 @@
 
 ## To Connect with the page: [click-me](https://danielnowrot.github.io/movies-browser)
 
----
-
 
 #### In this project we used the following technologies:
 
@@ -13,16 +11,12 @@
     <img src="https://skillicons.dev/icons?i=react,webpack,redux,js,html,css,styledcomponents,vscode,git,github,)%5D(https://skillicons.dev" />
   </a>
 
----
-
 
 ## Authors:
 
 - Daniel Nowrot
 - Przemysław Gajczewski
 - Jacek Warzecha
-
----
 
 
 ## Available Scripts
