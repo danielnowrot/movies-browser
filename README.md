@@ -1,9 +1,11 @@
 <h1 align="center">Welcome to our group project</h1>
+
 <br/>
 
 ![image](public/movieBrowserGif.gif)
 
 ## To Connect with the page: [click-me](https://danielnowrot.github.io/movies-browser)
+
 <br/>
 
 #### In this project we used the following technologies:
@@ -13,13 +15,15 @@
   </a>
 
 <br/>
+
 ## Authors:
 
 - ### Daniel Nowrot
-- ###Przemysław Gajczewski
+- ### Przemysław Gajczewski
 - ### Jacek Warzecha
 
 <br/>
+
 ## Available Scripts
 
 In the project directory, you can run:
