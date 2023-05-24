@@ -2,7 +2,7 @@ import styled, {css} from "styled-components";
 const mobileBreakPoint = ({ theme }) => theme.breakpoints.mobileMax;
 
 export const Main = styled.main`
-    padding: 56px 16px 40px;
+    padding: 0px 16px 40px;
     @media (max-width: ${mobileBreakPoint}px) {
         padding: 24px 16px 32px;
     }
