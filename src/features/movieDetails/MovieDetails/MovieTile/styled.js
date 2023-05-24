@@ -5,8 +5,8 @@ const mobileMaxBreakpoint = ({ theme }) => theme.breakpoints.mobileMax;
 export const TileWrapper = styled.div`
   height: 100%;
   background: #ffffff;
-  display: flex;
-  grid-template-rows: auto 1fr;
+  display: grid;
+  grid-template-columns: auto 1fr;
   transition: all 170ms cubic-bezier(0.45, 0.05, 0.55, 0.95);
   box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
   border-radius: 5px;
@@ -14,17 +14,14 @@ export const TileWrapper = styled.div`
   margin: 64px 0;
 
   &:hover {
-    cursor: pointer;
     transform: translateY(-8px);
     box-shadow: 0px 8px 20px 5px #a1bae2;
-  }
-  &:active {
-    transform: translateY(-8px);
   }
 
   @media (max-width: ${mobileMaxBreakpoint}px) {
     grid-template-columns: auto 1fr;
     padding: 12px;
+    margin: 16px 0 21px;
   }
 `;
 
@@ -35,11 +32,13 @@ export const ImageWrapper = styled.img`
   border-radius: 5px;
   margin-right: 40px;
   max-height: 464px;
+  grid-row: span 2 / auto;
 
   @media (max-width: ${mobileMaxBreakpoint}px) {
     width: 114px;
     height: 169px;
     margin-right: 16px;
+    margin-bottom: 23px;
   }
 `;
 
@@ -48,10 +47,6 @@ export const RatingWrapper = styled.div`
   align-items: center;
   padding: 0, 8px;
   margin-bottom: 24px;
-
-  @media (max-width: ${mobileMaxBreakpoint}px) {
-    margin-bottom: 19px;
-  }
 `;
 
 export const Star = styled(StarIcon)`
@@ -146,6 +141,7 @@ export const Subtitle = styled.p`
 export const CountryWrapper = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 `;
 
 export const Production = styled.p`
@@ -203,5 +199,6 @@ export const Overview = styled.p`
 
   @media (max-width: ${mobileMaxBreakpoint}px) {
     font-size: 14px;
+    grid-column: span 2 / auto;
   }
 `;

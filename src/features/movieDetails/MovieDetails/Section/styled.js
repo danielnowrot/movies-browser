@@ -16,9 +16,8 @@ export const List = styled.div`
   justify-content: center;
   grid-template-columns: repeat(auto-fill, minmax(208px, 1fr));
   padding: 0;
-  margin: 0;
-  grid-gap: 24px;  
-  /* white-space: nowrap; */
+  grid-gap: 24px;
+  margin: 0 0 88px;
 
   @media (max-width: ${mobileMaxBreakpoint}px) {
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -31,7 +30,7 @@ export const Tile = styled.div`
   flex-direction: column;
   align-items: center;
   height: 100%;
-  
+
   padding: 10px 15px 14px 16px;
   background: ${({ theme }) => theme.colors.white};
   border-radius: 5px;
